@@ -12,12 +12,12 @@ app.use(express.static(__dirname + '/public'));
 
 // routes
 app.get('/', function(req, res) {
-	res.send('Home route works');
-})
+	res.render('home');
+});
 
 // controllers
 app.use('/account', require('./controllers/accounts'));
-app.use('/search', require('./controllers/searchs'));
+app.use('/search', require('./controllers/searches'));
 //app.use('/community', require('./controllers/communities'));
 
 

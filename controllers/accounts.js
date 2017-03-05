@@ -8,8 +8,8 @@ var router = express.Router();
 
 // /GET, user account home page
 router.get('/', function(req, res) {
-	res.send('user home page works');
-})
+	res.render('account');
+});
 
 
 // export

@@ -8,7 +8,7 @@ var router = express.Router();
 
 // /GET, landing view
 router.get('/', function(req, res) {
-	res.send('/search route works');
+	res.render('search');
 });
 
 // /POST, submit a search
@@ -18,7 +18,7 @@ router.post('/', function(req, res) {
 
 // /GET, view game details
 router.get('/:id', function(req, res) {
-	res.send('view game details route works');
+	res.render('game');
 });
 
 
