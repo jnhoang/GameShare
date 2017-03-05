@@ -1,0 +1,30 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnhustin/WDI-GameShare-Project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnhustin/WDI-GameShare-Project2/issues"
+  },
+  "homepage": "https://github.com/jnhustin/WDI-GameShare-Project2#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.0",
+    "express-ejs-layouts": "^2.2.0",
+    "pg": "^6.1.2",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.80.0",
+    "sequelize": "^3.30.2"
+  }
+}
