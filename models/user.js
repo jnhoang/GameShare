@@ -25,7 +25,10 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     hooks: {
       beforeCreate: function(createdUser, options, cb) {
+        console.log(createdUser.password);
         var hash = bcrypt.hashSync(createdUser.password, 10);
+        console.log(hash);                              //debugging code
+        createdUser.password = hash;
         cb(null, createdUser);
       }
     },

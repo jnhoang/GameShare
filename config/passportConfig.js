@@ -6,7 +6,7 @@ passport.serializeUser(function(user, cb) {
 	cb(null, user.id);
 });
 
-passport.deserializeUser(function(user, cb) {
+passport.deserializeUser(function(id, cb) {
 	db.user.findById(id) 
 	.then(function(user) {
 		cb(null, user);
