@@ -24,10 +24,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     hooks: {
-      beforeCreate: function(createdUser, options, cb) {
-        var hash = bcrypt.hashSync(createdUser.password, 10);
-        cb(null, createdUser);
-      }
+      // beforeCreate: function(createdUser, options, cb) {
+      //   var hash = bcrypt.hashSync(createdUser.password, 10);
+      //   cb(null, createdUser);
+      // }
     },
     classMethods: {
       associate: function(models) {

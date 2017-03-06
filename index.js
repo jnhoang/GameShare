@@ -3,7 +3,7 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
-// var db = require('../models')
+var db = require('./models');
 var app = express();
 
 // set and use statements
@@ -19,7 +19,29 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
 	console.log(req.body);
-	res.send(req.body);
+
+	db.user.findOrCreate({
+		where: { 
+			email: req.body.email 
+		},
+		defaults: {
+			username: req.body.username,
+			firstName: req.body.firstName,
+			email: req.body.email,
+			password: req.body.password
+		}	
+	})
+	.spread(function(user, wasCreated) {
+		if (wasCreated) {
+			res.redirect('/');
+		} else {
+			res.send('Unsuccessful, email already in use');
+		}
+	})
+	.catch(function(error) {
+		console.error(error.message);
+		res.send(error);
+	})
 })
 
 // controllers
