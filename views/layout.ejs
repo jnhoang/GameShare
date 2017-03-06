@@ -7,12 +7,21 @@
 </head>
 <body>
 	<div class='container'>
+		
 		<nav>
 			<a href='/' class='btn btn-primary'>Home</a>
 			<a href='/search' class='btn btn-info'>Search</a>
 		</nav>
-		<%- body %>
+		<div class='row'>
+			<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+				<% include partials/alerts %>
+				<%- body %>
+				<strong>User Object: </strong><%- JSON.stringify(currentUser) %>
+			</div>
+		</div>
+
 	</div>
+
 	<script src='//code.jquery.com/jquery.js'></script>
 	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS' crossorigin='anonymous'></script>
 	<script type='text/javascript' src='/js/main.js'></script>
