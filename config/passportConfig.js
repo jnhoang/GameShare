@@ -6,7 +6,7 @@ passport.serializeUser(function(user, cb) {
 	cb(null, user.id);
 });
 
-passport.deserializeUser(function(user, cb) {
+passport.deserializeUser(function(id, cb) {
 	db.user.findById(id) 
 	.then(function(user) {
 		cb(null, user);
@@ -15,11 +15,11 @@ passport.deserializeUser(function(user, cb) {
 });
 
 passport.use(new localStrategy({
-	usernameField: 'email',				// change to username if this works
+	usernameField: 'username',				// change to username if this works
 	password: 'password'				// just sure to change email below
-}, function(email, password, cb) {
+}, function(username, password, cb) {
 	db.user.findOne({
-		where: {email: email}
+		where: {username: username}
 	})
 	.then(function(user) {
 		if(!user || !user.isValidPassword(password)) {

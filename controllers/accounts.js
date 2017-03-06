@@ -8,7 +8,7 @@ var router = express.Router();
 // routes
 
 // /GET, user account home page
-router.get('/',isLoggedIn , function(req, res) {
+router.get('/', isLoggedIn , function(req, res) {
 	res.render('account');
 });
 
