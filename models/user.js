@@ -24,16 +24,26 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     hooks: {
-      // beforeCreate: function(createdUser, options, cb) {
-      //   var hash = bcrypt.hashSync(createdUser.password, 10);
-      //   cb(null, createdUser);
-      // }
+      beforeCreate: function(createdUser, options, cb) {
+        var hash = bcrypt.hashSync(createdUser.password, 10);
+        cb(null, createdUser);
+      }
     },
     classMethods: {
       associate: function(models) {
         // associations can be defined here
       }
     },
+    instanceMethods: {
+      isValidPassword: function(passwordTyped) {
+        return bcrypt.compareSync(passwordTyped, this.password);
+      },
+      toJSON: function() {
+        var data = this.get();
+        delete data.password;
+        return data;
+      }
+    }
   });
   return user;
 };
