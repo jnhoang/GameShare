@@ -9,9 +9,32 @@ var router = express.Router();
 
 // /GET, user account home page
 router.get('/', isLoggedIn , function(req, res) {
-	res.render('account');
+	//console.log(req.user);					//debug code
+	var currentUser = req.user;
+
+	db.user.find({
+		where: {username: currentUser.username}
+	})
+	.then(function(user) {
+		console.log(user.username, user.id);			// debug code
+		res.render('account', {user: currentUser});
+	})
 });
+
+
 
 
 // export
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+

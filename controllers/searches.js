@@ -6,7 +6,7 @@ var apiHeaders = {
 			'Accept': 'application/json',
 		};
 var igdbURL = 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/'
-// var db = require('../models');
+var db = require('../models');
 
 var router = express.Router();
 
@@ -41,13 +41,12 @@ router.get('/game', function(req, res) {
 
 // /GET, view game details
 router.get('/game/:id', function(req, res) {
-	var id = req.params.id;
-	console.log(id);
+	var gameId = req.params.id;
 	request({
 		headers: apiHeaders,
-		url: igdbURL + id,
+		url: igdbURL + gameId,
 		qs: {
-			fields: 'name,screenshots,summary'
+			fields: 'name,cover,screenshots,summary'
 		}
 	}, function(error, response, body) {
 		if(!error && response.statusCode == 200) {
@@ -60,6 +59,44 @@ router.get('/game/:id', function(req, res) {
 	})
 });
 
+
+router.post('/add', function(req, res) {
+	var currentUser = req.user;
+	var gameId = req.body.gameId;
+
+	if (currentUser) {
+		db.user.find({
+			where: {username: currentUser.username}
+		})
+		.then(function(user) {
+			request({
+				headers: apiHeaders,
+				url: igdbURL + gameId,
+				qs: {
+					fields: 'name,cover'
+				}
+			}, function(error, response, body) {
+				if(!error && response.statusCode == 200) {
+					var gameData = JSON.parse(body)[0];
+					// res.send(gameData);
+					user.createGame({
+						title: gameData.name,
+						cover: gameData.cover.cloudinary_id,
+						igdbId: gameData.id,
+						userId: user.id
+					})
+					.then(function(game) {
+						res.send(gameData);
+					})
+				} else {
+					redirect('/search');
+				}
+			})
+			
+		})
+	}
+
+})
 
 // export
 module.exports = router;
