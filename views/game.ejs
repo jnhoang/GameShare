@@ -1,2 +1,17 @@
 <h1>Game</h1>
+<% var coverURL = 'https://images.igdb.com/igdb/image/upload/t_logo_med/'%>
+<% include partials/searchBar%>
 
+<% gameData.forEach(function(game) { %>
+	<% if (game.cover) { %>
+		<div class='form-group'>
+			<img src='<%=coverURL + game.cover.cloudinary_id %>'>
+			<a href='/search/game/<%=game.id%>'><%= game.name%></a>
+		</div>
+	<% } %>
+<% }); %>
+
+
+
+
+<!-- only need the first screen shot, try thumbnail first -->

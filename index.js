@@ -73,9 +73,13 @@ app.post('/login', passport.authenticate('local', {
 }));
 
 app.get('/logout', function(req, res) {
-	req.logout();
-	req.flash('success', 'You have successfully logged out');
-	res.redirect('/');
+	if (isLoggedIn) {
+		req.logout();
+		req.flash('success', 'You have successfully logged out');
+		res.redirect('/');
+	} else {
+		res.flash('error', 'You are not currently logged in');
+	}
 });
 
 // controllers
