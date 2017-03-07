@@ -27,6 +27,7 @@ app.use(function(req, res, next) {
 	next();
 });
 app.use(ejsLayouts);
+app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/public'));
 
