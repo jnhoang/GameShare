@@ -17,13 +17,16 @@ var smallImageExt = 't_screenshot_med/'%>
 	</div>
 </div>
 
-
-<%if (gameData.summary) { %>
-	<p><%= gameData.summary %></p>
-<% } else { %>
-	<p>no game summary available</p>
-<% }; %>
-
+<div class='row'></div>
+<div class='row'>
+	<div class='xs-12'>
+		<%if (gameData.summary) { %>
+		<p><%= gameData.summary %></p>
+		<% } else { %>
+		<p>no game summary available</p>
+		<% }; %>
+	</div>
+</div>
 <div class='row'>
 	<div class='responsiveCarousel text-center'>
 		<% gameData.screenshots.forEach(function(screenshot) { %>
