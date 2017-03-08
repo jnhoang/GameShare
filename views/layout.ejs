@@ -8,11 +8,14 @@
 <body>
 	<div class='container'>
 
-		<nav>
+		<nav class='text-right'>
 			<a href='/' class='btn btn-primary'>Home</a>
 			<a href='/search' class='btn btn-info'>Search</a>
 			<a href='/account' class='btn btn-success'>Account</a>
+			<% if (currentUser) { %>
 			<a href='/logout' class='btn btn-danger'>Logout</a>
+			<span>Logged in as <%= currentUser.username %></span>
+			<% }; %>
 		</nav>
 
 		<div class='row'>

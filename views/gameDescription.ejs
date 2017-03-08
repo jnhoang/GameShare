@@ -1,8 +1,21 @@
 <h1>Game Description</h1>
+<% var imageURL = 'https://images.igdb.com/igdb/image/upload/'%>
+<% var coverExt = 't_logo_med/'%>
+<% var bigImageExt = 't_screenshot_big/'%>
+<% var smallImageExt = 't_screenshot_med/'%>
+<h1><%= gameData.name %></h1>
+<img src='<%= imageURL + bigImageExt + gameData.screenshots[0].cloudinary_id%>' class=''>
+<img src='<%= imageURL + coverExt + gameData.cover.cloudinary_id %>'>
 
+<%if (gameData.summary) { %>
+	<p><%= gameData.summary %></p>
+<% } else { %>
+	<p>no game summary available</p>
+<% }; %>
 
-
-
+<% gameData.screenshots.forEach(function(screenshot) { %>
+	<img src='<%= imageURL + smallImageExt + screenshot.cloudinary_id %>'>
+<% }) %>
 
 
 

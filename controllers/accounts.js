@@ -19,7 +19,6 @@ router.get('/', isLoggedIn , function(req, res) {
 		include: [db.game]
 	})
 	.then(function(user) {
-		console.log(user.id)
 		res.render('account', {user: user});
 	})
 });

@@ -50,8 +50,9 @@ router.get('/game/:id', function(req, res) {
 		}
 	}, function(error, response, body) {
 		if(!error && response.statusCode == 200) {
-			var gameData = JSON.parse(body);
+			var gameData = JSON.parse(body)[0];
 			console.log(gameData);					//debug code
+			//res.send(gameData);
 			res.render('gameDescription', {gameData: gameData});			
 		} else {
 			res.redirect('/search');
