@@ -1,11 +1,22 @@
-<h1>Game Description</h1>
-<% var imageURL = 'https://images.igdb.com/igdb/image/upload/'%>
-<% var coverExt = 't_logo_med/'%>
-<% var bigImageExt = 't_screenshot_big/'%>
-<% var smallImageExt = 't_screenshot_med/'%>
-<h1><%= gameData.name %></h1>
-<img src='<%= imageURL + bigImageExt + gameData.screenshots[0].cloudinary_id%>' class=''>
-<img src='<%= imageURL + coverExt + gameData.cover.cloudinary_id %>'>
+<% 
+var imageURL = 'https://images.igdb.com/igdb/image/upload/'
+var coverExt = 't_logo_med/'
+var bigImageExt = 't_screenshot_huge/'
+var smallImageExt = 't_screenshot_med/'%>
+
+
+
+<div style='background-image:url("<%= imageURL + bigImageExt + gameData.screenshots[0].cloudinary_id%>")' class='coolBackground'>
+	<div class='row'>
+		<h1 class='text-center gameTitle'><%= gameData.name %></h1>
+	</div>
+	<div class='row gameCover'>
+		<div class='col-xs-1 col-xs-offset-1 '>
+			<img src='<%= imageURL + coverExt + gameData.cover.cloudinary_id %>' class='coverImg'>					
+		</div>
+	</div>
+</div>
+
 
 <%if (gameData.summary) { %>
 	<p><%= gameData.summary %></p>

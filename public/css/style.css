@@ -1,0 +1,19 @@
+.coolBackground {
+	height: 350px;
+	background-size: cover;
+	background-position: center;
+}
+.gameTitle {
+	top: 20%;
+	position: relative;
+	font-size: 70px;
+	color: white;
+	text-shadow: 5px 5px 5px black;
+}
+.gameCover {
+	top: 22%;
+	position: relative;
+}
+.coverImg {
+	box-shadow: 0 0 15px 5px black;
+}
