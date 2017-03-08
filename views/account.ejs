@@ -1,2 +1,9 @@
 <h1>Account</h1>
+<% var gameCoverURL = 'https://images.igdb.com/igdb/image/upload/t_logo_med/'%>
 <p class='text-right'><%= user.username %></p>
+
+<% user.games.forEach(function(game) { %>
+	<img src='<%=gameCoverURL + game.cover %>'</p>
+	<p><%= game.title %></p>
+
+<% }) %>

@@ -1,12 +1,13 @@
 <h1>Game</h1>
-<% var coverURL = 'https://images.igdb.com/igdb/image/upload/t_logo_med/'%>
+<% var gameCoverURL = 'https://images.igdb.com/igdb/image/upload/t_logo_med/'%>
 <% include partials/searchBar%>
 
 <% gameData.forEach(function(game) { %>
 	<% if (game.cover) { %>
 		<div class='form-group'>
-			<img src='<%=coverURL + game.cover.cloudinary_id %>'>
+			<img src='<%=gameCoverURL + game.cover.cloudinary_id %>'>
 			<a href='/search/game/<%=game.id%>'><%= game.name%></a>
+			
 			<form method='POST' action='/search/add'>
 				<input type='hidden' name='gameId' value='<%= game.id %>'>		
 				<button type='submit' class='btn btn-primary'>Add to Collection</button>

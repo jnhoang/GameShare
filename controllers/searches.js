@@ -54,7 +54,7 @@ router.get('/game/:id', function(req, res) {
 			console.log(gameData);					//debug code
 			res.render('gameDescription', {gameData: gameData});			
 		} else {
-			redirect('/search');
+			res.redirect('/search');
 		}
 	})
 });
@@ -78,7 +78,7 @@ router.post('/add', function(req, res) {
 			}, function(error, response, body) {
 				if(!error && response.statusCode == 200) {
 					var gameData = JSON.parse(body)[0];
-					// res.send(gameData);
+					// res.send(gameData);				//debug code
 					user.createGame({
 						title: gameData.name,
 						cover: gameData.cover.cloudinary_id,
@@ -86,10 +86,10 @@ router.post('/add', function(req, res) {
 						userId: user.id
 					})
 					.then(function(game) {
-						res.send(gameData);
+						res.status(200);
 					})
 				} else {
-					redirect('/search');
+					res.redirect('/search');
 				}
 			})
 			

@@ -13,11 +13,14 @@ router.get('/', isLoggedIn , function(req, res) {
 	var currentUser = req.user;
 
 	db.user.find({
-		where: {username: currentUser.username}
+		where: {
+			id: currentUser.id
+		},
+		include: [db.game]
 	})
 	.then(function(user) {
-		console.log(user.username, user.id);			// debug code
-		res.render('account', {user: currentUser});
+		console.log(user.id)
+		res.render('account', {user: user});
 	})
 });
 
