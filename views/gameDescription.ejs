@@ -13,10 +13,15 @@
 	<p>no game summary available</p>
 <% }; %>
 
-<% gameData.screenshots.forEach(function(screenshot) { %>
-	<img src='<%= imageURL + smallImageExt + screenshot.cloudinary_id %>'>
-<% }) %>
-
+<div class='row'>
+	<div class='responsiveCarousel text-center'>
+		<% gameData.screenshots.forEach(function(screenshot) { %>
+			<div>
+				<img src='<%= imageURL + smallImageExt + screenshot.cloudinary_id %>'>
+			</div>
+		<% }) %>
+	</div>
+</div>
 
 
 <!-- if game summary, else no game summary available -->
