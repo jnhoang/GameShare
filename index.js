@@ -39,9 +39,7 @@ app.get('/', function(req, res) {
 app.post('/signup', function(req, res) {
 	console.log(req.body); 							// debug code
 	db.user.findOrCreate({
-		where: { 
-			username: req.body.username 
-		},
+		where: {username: req.body.username},
 		defaults: {
 			firstName: req.body.firstName,
 			email: req.body.email,
