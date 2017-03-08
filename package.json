@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jnhustin/WDI-GameShare-Project2#readme",
   "dependencies": {
+    "async": "^2.1.5",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.0",
     "connect-flash": "^0.1.1",

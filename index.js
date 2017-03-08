@@ -85,7 +85,7 @@ app.get('/logout', function(req, res) {
 // controllers
 app.use('/account', require('./controllers/accounts'));
 app.use('/search', require('./controllers/searches'));
-//app.use('/community', require('./controllers/communities'));
+app.use('/community', require('./controllers/communities'));
 
 
 

@@ -35,6 +35,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         models.user.hasMany(models.game);
+        models.user.belongsToMany(models.community, {through: models.user_community});
       }
     },
     instanceMethods: {
