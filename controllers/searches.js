@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
 	res.render('search');
 });
 
-router.get('/game', function(req, res) {
+router.get('/searchResult', function(req, res) {
 	var s = req.query.search;
 	request({ 
 		headers: apiHeaders,
@@ -31,7 +31,7 @@ router.get('/game', function(req, res) {
 			var gameData = JSON.parse(body);
 			//console.log(gameData);				//debug code
 			//res.send(gameData);					//debug code
-			res.render('game', {gameData: gameData});
+			res.render('searchResult', {gameData: gameData});
 		} else {
 			res.redirect('/search');
 
@@ -40,7 +40,7 @@ router.get('/game', function(req, res) {
 });
 
 // /GET, view game details
-router.get('/game/:id', function(req, res) {
+router.get('/searchResult/:id', function(req, res) {
 	var gameId = req.params.id;
 	request({
 		headers: apiHeaders,

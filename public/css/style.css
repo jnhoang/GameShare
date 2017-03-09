@@ -26,45 +26,43 @@
 	margin-bottom: 10px;
 	position: relative;
 }
-
+.divider-15 {
+	width: 100%;
+	min-height: 1px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	position: relative;
+}
 /*Search*/
 .searchBar {
 	width: 70%;
 }
-.searchImgBox {
-	height: 100px;
-	width: 100px;
-}
-.searchCoverResult {
-	height: auto;
-	width: 100%;
-	vertical-align: middle;
-	clip-path: inset(10px 0px);
-}
+
 /*gameDescription*/
 .coolBackground {
 	height: 350px;
+	width: 100%;
 	background-size: cover;
 	background-position: center;
 }
 .gameTitle {
-	padding-top: 30px;
+	padding-top: 50px;
 	font-size: 70px;
 	color: white;
 	text-shadow: 5px 5px 5px black;
 	margin: 0 25px;
 }
-.gameCover {
-	position: relative;
-}
+
 .coverImg {
+	position: relative;
+	margin-top: -150%;
 	box-shadow: 0 0 15px 5px black;
-}
-.sections {
-	margin: 5px 0;
 }
 .test {
 	height: 100px;
 	width: 100px;
 	background-color:black;
+}
+.responsiveCarousel {
+	background-color: black;
 }
