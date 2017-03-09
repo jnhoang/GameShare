@@ -1,3 +1,26 @@
+/*Layout*/
+.navBar {
+	border: 1px solid red;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px 5px 0 0;	
+	background-color: #7F7F85;
+	font-family: 'Press Start 2P', cursive;
+	text-shadow: 3px 3px 2px black;
+
+}
+.logo1 {
+	padding: 0px;
+	margin: 0px;
+	font-size: 21px;
+	color: white;
+}
+.navLinks {
+	color: white;
+	font-size: 10px;
+}
+
+/*gameDescription*/
 .coolBackground {
 	height: 350px;
 	background-size: cover;
@@ -16,6 +39,11 @@
 .coverImg {
 	box-shadow: 0 0 15px 5px black;
 }
-.row {
+.sections {
 	margin: 5px 0;
+}
+.test {
+	height: 100px;
+	width: 100px;
+	background-color:black;
 }
