@@ -1,7 +1,12 @@
 // global variables & requires
 var express = require('express');
 var db = require('../models');
+var flash = require('connect-flash');
+
+
 var router = express.Router();
+
+router.use(flash());
 
 // routes
 
@@ -20,12 +25,10 @@ router.get('/create', function(req, res) {
 
 // /POST, findOrCreate a new community, redirect to new community page
 router.post('/create/:id', function(req, res) {
-	var currentUser = req.user;
+	var currentUser = req.user.id;
 
 	if (currentUser) {
-		db.user.find({
-			where: {id: currentUser.id}
-		})
+		db.user.find({ where: {id: currentUser}})
 		.then(function(user) {
 			db.community.findOrCreate({
 				where: {name: req.body.name},
@@ -46,7 +49,8 @@ router.post('/create/:id', function(req, res) {
 			});
 		});
 	} else {
-		res.send('something went wrong');
+		req.flash('error', 'you need to be logged in to create a community');
+		res.redirect('/');
 	}
 })
 
@@ -63,17 +67,40 @@ router.get('/:id', function(req, res) {
 			where: {userId: {$in: usersArr}},
 			include: [db.user]
 		})
-		.then(function(game) {
-			res.send(game);
-			// res.render('community/singleCommunity',{
-			// 	community: community,
-			// 	game: game
-			// });			
+		.then(function(games) {
+			// res.send(games[0].user)				///debug code
+			res.render('community/singleCommunity',{
+				community: community,
+				games: games
+			});			
 		})
 
 	})
 });
 
+
+router.post('/join', function(req, res) {
+	currentUser = req.user.id;
+	communityId = req.body.communityId;
+	db.user_community.findOrCreate({
+		where: {
+			userId: currentUser,
+			communityId: communityId
+		}
+	})
+	.spread(function(jointTable, userAdded) {
+		if (userAdded) {
+			req.flash('success', 'Welcome to the community');
+		} else {
+			req.flash('error', 'Something went wrong');
+		}
+		res.redirect('/community/' + communityId);
+	})
+	.catch(function(error) {
+		req.flash('error', error.message);
+		res.redirect('/');
+	});
+})
 
 // export
 module.exports = router;
@@ -86,6 +113,5 @@ function getUserId(userArr) {
 	userArr.forEach(function(user) {
 		tempArr.push(user.id);
 	});
-
 	return tempArr;
 }
