@@ -1,8 +1,12 @@
 <form method='GET' action='/search/game'>
-	<div class='form-group'>
-		<label name='search'>Search for a game</label>
-		<input type='text' name='search' class='form-control' placeholder='enter a game name'>
+	<div class='row'>
+		<div class='form-horizontal'>
+			<div class='col-xs-offset-2 col-xs-6'>
+				<input type='text' name='search' class='form-control' placeholder='enter a game name'>
+			</div>
+			<div class='col-xs-2'>
+				<button type='submit' class='btn btn-success raised '>Search</button>
+			</div>
+		</div>
 	</div>
-	<button type='submit' class='btn btn-info'>Search</button>
-
 </form>

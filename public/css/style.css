@@ -1,13 +1,12 @@
 /*Layout*/
 .navBar {
-	border: 1px solid red;
+	border-bottom: 3px solid #00bf6f;
 	margin: 5px;
 	padding: 5px;
 	border-radius: 5px 5px 0 0;	
 	background-color: #7F7F85;
 	font-family: 'Press Start 2P', cursive;
 	text-shadow: 3px 3px 2px black;
-
 }
 .logo1 {
 	padding: 0px;
@@ -20,6 +19,28 @@
 	font-size: 10px;
 }
 
+.divider-10 {
+	width: 100%;
+	min-height: 1px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+/*Search*/
+.searchBar {
+	width: 70%;
+}
+.searchImgBox {
+	height: 100px;
+	width: 100px;
+}
+.searchCoverResult {
+	height: auto;
+	width: 100%;
+	vertical-align: middle;
+	clip-path: inset(10px 0px);
+}
 /*gameDescription*/
 .coolBackground {
 	height: 350px;
