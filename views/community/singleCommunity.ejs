@@ -1,22 +1,38 @@
-<h1>Community</h1>
+<% var gameCoverURL = 'https://images.igdb.com/igdb/image/upload/t_cover_big/'%>
+<div class='divider-15'></div>
 
-<form method='POST' action='/community/join'>
-	<input type='hidden' name='communityId' value='<%=community.id %>'>
-	<button type='submit' class='btn btn-success'>Join Community</button>
-</form>
-<a href='/community/leave/<%=community.id%>' class='btn btn-danger leaveCommunityBtn'>Leave Community</a>
+<div class='communitySetting'>
+	<div><h1 class='communityName'><%= community.name %> Community</h1></div>
+	<div class='text-right'>
+		<form method='POST' action='/community/join' class='form-group'>
+			<input type='hidden' name='communityId' value='<%=community.id %>'>
+			<button type='submit' class='btn btn-success raised'>Join Community</button>
+		</form>
+		<a href='/community/leave/<%=community.id%>' class='btn btn-danger raised leaveCommunityBtn'>Leave Community</a>
+	</div>
+</div>
+
+<div class='divider-15'></div>
 
 <h2>Users</h2>
-<% community.users.forEach(function(user) { %>
-	<p><%= user.username %></p>
-<% }); %>
-
+<div class='userList'>
+	<% community.users.forEach(function(user) { %>
+		<div class='userBox'>
+			<img src='http://lorempixel.com/100/100/'>
+			<p><%= user.username %></p>
+		</div>
+	<% }); %>
+</div>
 <h2>Games</h2>
-<% games.forEach(function(game) { %>
-	<p><%= game.title %></p>
-	<p><%= game.user.username %></p>
-<% }); %>
-
+<div class='row userGames'>
+	<% games.forEach(function(game) { %>
+		<div class='col-xs-12 col-sm-4 col-md-2 imgContainer'>
+			<img src='<%= gameCoverURL + game.cover %>' class='img-responsive'>
+			<p><%= game.title %></p>
+			<p><%= game.user.username %></p>
+		</div>
+	<% }); %>
+</div>
 
 
 

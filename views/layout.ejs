@@ -13,14 +13,16 @@
 	<div class='container-fluid'>
 
 		<nav class='navBar row'>
-			<a href='/' class='logo1 col-xs-1/'>GS.com</a>
-			<a href='/account' class='btn btn-link navLinks'>Account</a>
-			<a href='/search' class='btn btn-link navLinks'>Search</a>
-			<a href='/community' class='btn btn-link navLinks'>Communities</a>
-			<% if (currentUser) { %>
-			<a href='/account/logout' class='btn btn-danger'>Logout</a>
-			<span>Logged in as <%= currentUser.username %></span>
-			<% }; %>
+			<a href='/' class='logo1 col-xs-1'>GS.com</a>
+			<div class='text-right'>
+				<a href='/account' class='btn btn-link navLinks'>Account</a>
+				<a href='/search' class='btn btn-link navLinks'>Search</a>
+				<a href='/community' class='btn btn-link navLinks'>Communities</a>
+				<% if (currentUser) { %>
+					<span class='rightNav'>Logged in as <%= currentUser.username %></span>
+					<a href='/account/logout' class='btn btn-danger raised rightNav'>Logout</a>
+				<% }; %>
+			</div>
 		</nav>
 
 		<% include partials/alerts %>

@@ -2,11 +2,17 @@
 .navBar {
 	border-bottom: 3px solid #00bf6f;
 	margin: 5px;
-	padding: 5px;
+	padding: 10px;
 	border-radius: 5px 5px 0 0;	
 	background-color: #7F7F85;
 	font-family: 'Press Start 2P', cursive;
 	text-shadow: 3px 3px 2px black;
+}
+.rightNav {
+	font-family: 'Helvetica Neue';
+	text-shadow: none;
+	display: inline-block;
+	color: white;
 }
 .logo1 {
 	padding: 0px;
@@ -37,6 +43,48 @@
 .searchBar {
 	width: 70%;
 }
+/*Account*/
+.userGames {
+	border-top: 3px solid #50D6FF;
+	border-bottom: 3px solid #50D6FF;
+	background-color: #ECF0F1;
+	margin: 0 5px;
+}
+/*Community*/
+.communitySetting {
+	background-color: #FAFAFB;
+	border-top: 3px solid #5DFFCC;
+	border-bottom: 3px solid #5DFFCC;
+	margin: 0 5px;
+	padding: 15px 0;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.communityName {
+	font-size: 60px;
+	padding: 0 20px;
+	margin: 0;
+}
+.userList {
+	display: flex;
+	justify-content: space-around;
+	align-content: : center;
+	background-color: #ECF0F1;
+	border-top: 3px solid #5DFFCC;
+	border-bottom: 3px solid #5DFFCC;
+}
+.userBox {
+	height: 150px;
+	width: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.userBox p {
+	margin: 0;
+}
 
 /*gameDescription*/
 .coolBackground {
@@ -45,6 +93,13 @@
 	background-size: cover;
 	background-position: center;
 }
+.imgContainer {
+	height: 200px;
+	width: 200px;
+	margin: 20px;
+	overflow: hidden;
+
+}
 .gameTitle {
 	padding-top: 50px;
 	font-size: 70px;
@@ -52,8 +107,11 @@
 	text-shadow: 5px 5px 5px black;
 	margin: 0 25px;
 }
-
-.coverImg {
+.coverImgs {
+	max-height: 100%;
+	max-width: 100%;
+}
+.singleCoverImg {
 	position: relative;
 	margin-top: -150%;
 	box-shadow: 0 0 15px 5px black;

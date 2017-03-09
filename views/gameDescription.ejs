@@ -16,12 +16,12 @@ var smallImageExt = 't_screenshot_med/'%>
 	
 <div class='row'>
 	<div class='col-xs-offset-1 col-xs-1'>
-		<img src='<%= imageURL + coverExt + gameData.cover.cloudinary_id %>' class='coverImg'>					
+		<img src='<%= imageURL + coverExt + gameData.cover.cloudinary_id %>' class='singleCoverImg'>					
 	</div>
 	<div class='col-xs-1'>
 		<form method='POST' action='/search/add'>
 			<input type='hidden' name='gameId' value='<%= gameData.id %>'>
-			<button type='submit' class='btn btn-primary gradient'>Add to Collection</button>
+			<button type='submit' class='btn btn-primary gradient'>Add to Library</button>
 		</form>
 	</div>
 </div>

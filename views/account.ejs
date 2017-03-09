@@ -1,5 +1,5 @@
 <h1>Account</h1>
-<% var gameCoverURL = 'https://images.igdb.com/igdb/image/upload/t_logo_med/'%>
+<% var gameCoverURL = 'https://images.igdb.com/igdb/image/upload/t_cover_big/'%>
 
 <h1>Communities you belong to</h1>
 <% user.communities.forEach(function(community) { %>
@@ -9,10 +9,10 @@
 
 
 <h1>Games You Own</h1>
-	<div class='row'>
+	<div class='row userGames'>
 		<% user.games.forEach(function(game) { %>
 			<div class='col-xs-3'>
-				<img src='<%=gameCoverURL + game.cover %>'>
+				<div class='imgContainer'><img src='<%=gameCoverURL + game.cover %>' class='coverImgs'></div>
 				<p><%= game.title %></p>
 			</div>
 		<% }) %>
