@@ -7,7 +7,10 @@ var router = express.Router();
 
 // /GET, shows all communities available
 router.get('/', function(req, res) {
-	res.render('community/allCommunities');
+	db.community.findAll({ limit: 10})
+	.then(function(communities) {
+		res.render('community/allCommunities', {communities: communities});		
+	})
 });
 
 // /GET, shows form to create a new community
@@ -33,13 +36,10 @@ router.post('/create/:id', function(req, res) {
 					user.addCommunity(community);
 					req.flash('success', 'community was created');
 					res.redirect('/account');
-					//res.send('something was created');						
+				} else {
+					req.flash('error', 'community with that name already exists');
+					res.redirect('/');
 				}
-				//callback(null)
-				// } else {
-				// 	//req.flash('error', 'community with that name already exists');
-				// 	res.redirect('/');
-				// }
 			})
 			.catch(function(error) {
 				res.sendStatus(404);
@@ -53,7 +53,25 @@ router.post('/create/:id', function(req, res) {
 
 // /GET, shows a single community's site
 router.get('/:id', function(req, res) {
-	res.render('community/community');
+	db.community.find({
+		where: {id: req.params.id},
+		include: [db.user]
+	})
+	.then(function(community) {
+		var usersArr = getUserId(community.users);
+		db.game.findAll({
+			where: {userId: {$in: usersArr}},
+			include: [db.user]
+		})
+		.then(function(game) {
+			res.send(game);
+			// res.render('community/singleCommunity',{
+			// 	community: community,
+			// 	game: game
+			// });			
+		})
+
+	})
 });
 
 
@@ -63,4 +81,11 @@ module.exports = router;
 
 
 
+function getUserId(userArr) {
+	var tempArr = [];
+	userArr.forEach(function(user) {
+		tempArr.push(user.id);
+	});
 
+	return tempArr;
+}
