@@ -1,15 +1,17 @@
 <h1>Community</h1>
 
-<h2>Users</h2>
 <form method='POST' action='/community/join'>
-	<input type='hidden' name='communityId' value='<%=community.id%>'>
+	<input type='hidden' name='communityId' value='<%=community.id %>'>
 	<button type='submit' class='btn btn-success'>Join Community</button>
 </form>
+<a href='/community/leave/<%=community.id%>' class='btn btn-danger leaveCommunityBtn'>Leave Community</a>
 
+<h2>Users</h2>
 <% community.users.forEach(function(user) { %>
 	<p><%= user.username %></p>
 <% }); %>
 
+<h2>Games</h2>
 <% games.forEach(function(game) { %>
 	<p><%= game.title %></p>
 	<p><%= game.user.username %></p>

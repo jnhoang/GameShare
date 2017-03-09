@@ -2,11 +2,22 @@ $('document').ready(function() {
 	
 	console.log('ready');
 
-	$('.test').on('click', function(e) {
+	// user leaves community
+	$('.leaveCommunityBtn').on('click', function(e) {
 		e.preventDefault();
+
+		var communityURL = $(this).attr('href');
+		console.log(communityURL);
+
+		$.ajax({
+			method: 'DELETE',
+			url: communityURL,
+		}).done(function(data) {
+			window.location = '/account';
+		})
 	});
 
-
+	// gameDescription view's screenshot Carousel
 	$('.responsiveCarousel').slick({
 		dots: true,
 		infinite: true,

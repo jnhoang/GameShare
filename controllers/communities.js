@@ -78,7 +78,7 @@ router.get('/:id', function(req, res) {
 	})
 });
 
-
+// /POST, active user joins community
 router.post('/join', function(req, res) {
 	currentUser = req.user.id;
 	communityId = req.body.communityId;
@@ -89,10 +89,13 @@ router.post('/join', function(req, res) {
 		}
 	})
 	.spread(function(jointTable, userAdded) {
+		// userAdded ? req.flash('success', 'Welcome to the community')
+		// : 			req.flash('error', 'You\'re already a member :) ');
+
 		if (userAdded) {
 			req.flash('success', 'Welcome to the community');
 		} else {
-			req.flash('error', 'Something went wrong');
+			req.flash('error', 'You\'re already a member :)');
 		}
 		res.redirect('/community/' + communityId);
 	})
@@ -101,6 +104,28 @@ router.post('/join', function(req, res) {
 		res.redirect('/');
 	});
 })
+
+// /DELETE, remove association between currentUser & community
+router.delete('/leave/:communityId', function(req, res) {
+	var currentUser = req.user.id;
+	var communityId = req.params.communityId;
+	console.log(communityId)
+	db.user_community.destroy({
+		where: {
+			userId: currentUser,
+			communityId: communityId
+		}
+	})
+	.then(function(success) {
+		if (success) {
+			req.flash('success', 'this group will be a little less awesome without you :\'(');
+			res.sendStatus(200);
+		} else {
+			req.flash('error', 'You weren\'t even part of the group and you want to leave?!');
+			res.sendStatus(200);
+		}
+	});
+});
 
 // export
 module.exports = router;
