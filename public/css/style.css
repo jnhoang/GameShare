@@ -39,6 +39,15 @@
 	margin-bottom: 15px;
 	position: relative;
 }
+/*Home*/
+.homeEvenRow {
+	background-color: #FAFAFB;
+	border-top: 3px solid #5DFFCC;
+	border-bottom: 3px solid #5DFFCC;
+}
+.siteDescription p {
+	font-size: 24px;
+}
 /*Search*/
 .searchBar {
 	width: 70%;
