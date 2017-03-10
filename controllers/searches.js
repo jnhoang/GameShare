@@ -78,15 +78,33 @@ router.post('/add', function(req, res) {
 				if(!error && response.statusCode == 200) {
 					var gameData = JSON.parse(body)[0];
 					// res.send(gameData);				//debug code
-					user.createGame({
-						title: gameData.name,
-						cover: gameData.cover.cloudinary_id,
-						igdbId: gameData.id,
-						userId: user.id
+					db.game.findOrCreate({
+						where: {
+							title: gameData.name,
+							userId: currentUser.id
+						},
+						defaults: {
+							title: gameData.name,
+							cover: gameData.cover.cloudinary_id,
+							igdbId: gameData.id,
+							userId: user.id
+						}
 					})
-					.then(function(game) {
-						res.status(200);
-					})
+					// user.createGame({
+					// 	title: gameData.name,
+					// 	cover: gameData.cover.cloudinary_id,
+					// 	igdbId: gameData.id,
+					// 	userId: user.id
+					// })
+					.spread(function(game, wasAdded) {
+						if (wasAdded) {	
+							req.flash('success', 'game added to your library');						
+							res.redirect('/account');
+						} else {
+							req.flash('error', 'game already in your library');
+							res.redirect('/search');
+						}
+					});
 				} else {
 					res.redirect('/search');
 				}

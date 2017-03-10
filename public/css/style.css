@@ -8,6 +8,13 @@
 	font-family: 'Press Start 2P', cursive;
 	text-shadow: 3px 3px 2px black;
 }
+footer {
+	border-top: 3px solid #00bf6f;
+	margin: 5px;
+	padding: 10px;
+	border-radius: 0 0 5px 5px;	
+	background-color: #7F7F85;
+}
 .rightNav {
 	font-family: 'Helvetica Neue';
 	text-shadow: none;

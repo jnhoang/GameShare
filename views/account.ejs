@@ -3,19 +3,30 @@
 <div class='divider-10'></div>
 
 <div class='shortList'>
-	
 	<% games.forEach(function(game) { %>
-		<p><%= game.title %></p>
-		<p><%= game.askerUsername %></p>
+		
+		<div>
+			<%= game.title %>: <%= game.askerUsername %>
+			<form method='PUT' name='/account/accept/'<%= game.id %> action='/account/accept' class='acceptLoanRequest'>
+				<span class='glyphicon glyphicon-remove'></span>
+				<input type='hidden' name='game' value='<%= game %>'>
+				<button type='submit' class='btn btn-success raised'>
+					<span class='glyphicon glyphicon-ok'></span>
+				</button>
+			</form>
+
+		</div>
+
+
 	<% }) %>
-	<!-- <a href='/community'>
+	<a href='/community'>
 		<div class='userBox text-center'>
 			<div class='addBox communityAddBox'>
 				<span class='glyphicon glyphicon-plus'></span>
 			</div>
 			<p class='text-center'>Find a Community</p>
 		</div>
-	</a> -->
+	</a>
 	<% user.communities.forEach(function(community) { %>
 		<div class='userBox text-center'>
 			<a href='/community/<%= community.id %>'>

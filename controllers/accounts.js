@@ -8,6 +8,7 @@ var router = express.Router();
 
 // routes
 
+// /POST, Signup
 router.post('/signup', function(req, res) {
 	console.log(req.body); 							// debug code
 	db.user.findOrCreate({
@@ -35,6 +36,7 @@ router.post('/signup', function(req, res) {
 	});
 });
 
+// /POST, Login
 router.post('/login', passport.authenticate('local', {
 	successRedirect: '/account',
 	successFlash: 'Good job, you logged in',
@@ -42,6 +44,7 @@ router.post('/login', passport.authenticate('local', {
 	failureFlash: 'Invalid credentials'
 }));
 
+// /GET, logout
 router.get('/logout', function(req, res) {
 	if (isLoggedIn) {
 		req.logout();
@@ -69,14 +72,37 @@ router.get('/', isLoggedIn , function(req, res) {
 				askerUsername: {$not: null}
 			}
 		})
-		.then(function(games) {	
+		.then(function(games) {
+			var gamesOnLoan = [];
+
+			games.forEach(function(game) {
+				if (game.askerUsername && game.loaned) {
+					gamesOnLoan.push(game);
+				}
+			})
 			res.render('account', {
 				user: user,
-				games: games
+				games: games,
+				gamesOnLoan: gamesOnLoan
 			});
 		})
 	})
 });
+
+// /PUT, game is on Borrow
+router.put('/account/accept/:id', function(req, res) {
+	var gameId = req.body.id;
+	console.log( '**************************', req.body)
+	
+	db.game.update({loaned: true}, 
+	{ where: {id: gameId} })
+	.then (function(gameLoaned) {
+		res.redirect('/account');
+		req.flash('success', 'game loaned');
+	})
+})
+
+
 
 
 

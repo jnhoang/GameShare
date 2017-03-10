@@ -28,4 +28,34 @@ $('document').ready(function() {
 		autoplaySpeed: 2500
 	});
 
+	// accept user request to borrow a game
+	$('.acceptLoanRequest').on('submit', function(e) {
+		e.preventDefault();
+		console.log($(this))
+		var acceptURL = $(this).attr('name');
+		var gameData = $(this).serialize();
+		console.log('before the ajax call');
+
+		$.ajax({
+			method: 'PUT',
+			url: acceptURL,
+			data: gameData
+		})
+		.done(function(data) {
+			console.log('in the done fx after ajax call')
+			window.location = '/account'
+		});
+	});
+
 });
+
+
+
+
+
+
+
+
+
+
+

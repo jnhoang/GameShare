@@ -15,11 +15,11 @@
 		<nav class='navBar row'>
 			<a href='/' class='logo1 col-xs-1'>GameShare</a>
 			<div class='text-right'>
-				<a href='/account' class='btn btn-link navLinks'>Account</a>
-				<a href='/search' class='btn btn-link navLinks'>Search</a>
+				<a href='/account' class='btn btn-link navLinks'>Home</a>
+				<a href='/search' class='btn btn-link navLinks'>Games</a>
 				<a href='/community' class='btn btn-link navLinks'>Communities</a>
 				<% if (currentUser) { %>
-					<span class='rightNav'>Logged in as <%= currentUser.username %></span>
+					<span class='rightNav'><%= currentUser.username %></span>
 					<a href='/account/logout' class='btn btn-danger raised rightNav'>Logout</a>
 				<% }; %>
 			</div>
@@ -28,9 +28,8 @@
 		<% include partials/alerts %>
 		<%- body %>
 
-		<div class='row'>
-			<footer>footer</footer>
-		</div>
+		<div class='divider-15'></div>
+		<footer>footer</footer>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS' crossorigin='anonymous'></script>
