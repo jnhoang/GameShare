@@ -3,10 +3,20 @@
 <div class='divider-10'></div>
 
 <div class='shortList'>
+	<a href='/community'>
+		<div class='userBox text-center'>
+			<div class='addBox communityAddBox'>
+				<span class='glyphicon glyphicon-plus'></span>
+			</div>
+			<p class='text-center'>Find a Community</p>
+		</div>
+	</a>
 	<% user.communities.forEach(function(community) { %>
-		<div class='userBox'>
-			<img src='http://lorempixel.com/100/100/'>
-			<a href='/community/<%= community.id %>'><p><%= community.name %></p></a>
+		<div class='userBox text-center'>
+			<a href='/community/<%= community.id %>'>
+				<img src='http://lorempixel.com/100/100/'>
+				<p><%= community.name %></p>
+			</a>
 		</div>
 	<% }) %>
  </div>
@@ -15,6 +25,14 @@
 <div class='divider-10'></div>
 
 <div class='row userGames'>
+	<div class='col-xs-12 col-sm-4 col-md-2 imgContainer'>
+		<a href='/search'>
+			<div class='addBox gameAddBox'>
+				<span class='glyphicon glyphicon-plus'></span>
+			</div>
+			<p class='text-center'>Add a Game</p>
+		</a>
+	</div>
 	<% user.games.forEach(function(game) { %>
 		<div class='col-xs-12 col-sm-4 col-md-2 imgContainer'>
 			<a href='/search/searchResult/<%=game.igdbId%>'><img src='<%=gameCoverURL + game.cover %>' class='coverImgs'></a>
