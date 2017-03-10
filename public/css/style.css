@@ -43,6 +43,13 @@
 .searchBar {
 	width: 70%;
 }
+.searchResultSummary {
+	margin-top:25px;
+}
+.searchResultBackground {
+	background-color: #ECF0F1;
+	padding-bottom: 20px;
+}
 /*Account*/
 .userGames {
 	border-top: 3px solid #50D6FF;
@@ -66,7 +73,8 @@
 	padding: 0 20px;
 	margin: 0;
 }
-.userList {
+.shortList {
+	padding: 10px 0;
 	display: flex;
 	justify-content: space-around;
 	align-content: : center;
@@ -83,6 +91,7 @@
 	flex-direction: column;
 }
 .userBox p {
+	font-size: 18px;
 	margin: 0;
 }
 
@@ -94,11 +103,10 @@
 	background-position: center;
 }
 .imgContainer {
-	height: 285px;
+	height: 200px;
 	width: 200px;
 	margin: 20px;
 	overflow: hidden;
-
 }
 .gameTitle {
 	padding-top: 50px;

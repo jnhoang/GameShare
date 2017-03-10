@@ -8,15 +8,13 @@
 			<input type='hidden' name='communityId' value='<%=community.id %>'>
 			<button type='submit' class='btn btn-success raised'>Join Community</button>
 		</form>
-		<a href='/community/leave/<%=community.id%>' class='btn btn-danger raised leaveCommunityBtn'>Leave Community</a>
+		<a href='/community/leave/<%=community.id %>' class='btn btn-danger raised leaveCommunityBtn'>Leave Community</a>
 	</div>
 </div>
 
-<div class='divider-15'></div>
-
 <h2>Users</h2>
 <div class='divider-10'></div>
-<div class='userList'>
+<div class='shortList'>
 	<% community.users.forEach(function(user) { %>
 		<div class='userBox'>
 			<img src='http://lorempixel.com/100/100/'>
@@ -30,7 +28,9 @@
 <div class='row userGames'>
 	<% games.forEach(function(game) { %>
 		<div class='col-xs-12 col-sm-4 col-md-2 imgContainer'>
-			<img src='<%= gameCoverURL + game.cover %>' class='img-responsive'>
+			<a href='/search/searchResult/<%= game.igdbId %>'>
+				<img src='<%= gameCoverURL + game.cover %>' class='img-responsive'>
+			</a>
 			<p><%= game.title %></p>
 			<p><%= game.user.username %></p>
 		</div>

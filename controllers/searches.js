@@ -23,7 +23,7 @@ router.get('/searchResult', function(req, res) {
 		headers: apiHeaders,
 		url: igdbURL,
 		qs: {
-			fields: 'name,cover',
+			fields: 'name,cover,summary',
 			search: s
 		}
 	}, function (error, response, body) {
@@ -58,7 +58,7 @@ router.get('/searchResult/:id', function(req, res) {
 	})
 });
 
-
+// /POST, add game to user Library
 router.post('/add', function(req, res) {
 	var currentUser = req.user;
 	var gameId = req.body.gameId;

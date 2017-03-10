@@ -1,8 +1,10 @@
 <h1>All Communities</h1>
 
-<a href='/community/create' class='btn btn-primary'>Create a new Community</a>
+<a href='/community/create' class='btn btn-primary gradient'>Create a new Community</a>
 
 <% communities.forEach(function(community) { %>
-	<a href='/community/<%= community.id %>'><h3><%= community.name %></h3></a>
+	<a href='/community/<%= community.id %>'>
+		<h3><%= community.name %></h3>
+	</a>
 	<p><%= community.description %></p>
 <% }); %>

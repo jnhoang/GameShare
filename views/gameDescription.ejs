@@ -5,7 +5,7 @@ var bigImageExt = 't_screenshot_huge/'
 var smallImageExt = 't_screenshot_med/'%>
 
 <div class='divider-15'></div>
-<% include partials/searchBar%>
+<% include partials/searchBar %>
 <div class='divider-15'></div>
 
 <div style='background-image:url("<%= imageURL + bigImageExt + gameData.screenshots[0].cloudinary_id%>")' class='coolBackground'>
@@ -44,9 +44,9 @@ var smallImageExt = 't_screenshot_med/'%>
 	<h3 class='col-xs-offset-1 col-xs-11'>Storyline</h3>
 	<div class='col-xs-offset-1 col-xs-10'>
 		<%if (gameData.summary) { %>
-		<p><%= gameData.summary %></p>
+			<p><%= gameData.summary %></p>
 		<% } else { %>
-		<p>no game summary available</p>
+			<p>no game summary available</p>
 		<% }; %>
 	</div>
 </div>
