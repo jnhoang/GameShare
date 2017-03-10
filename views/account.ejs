@@ -3,14 +3,19 @@
 <div class='divider-10'></div>
 
 <div class='shortList'>
-	<a href='/community'>
+	
+	<% games.forEach(function(game) { %>
+		<p><%= game.title %></p>
+		<p><%= game %></p>
+	<% }) %>
+	<!-- <a href='/community'>
 		<div class='userBox text-center'>
 			<div class='addBox communityAddBox'>
 				<span class='glyphicon glyphicon-plus'></span>
 			</div>
 			<p class='text-center'>Find a Community</p>
 		</div>
-	</a>
+	</a> -->
 	<% user.communities.forEach(function(community) { %>
 		<div class='userBox text-center'>
 			<a href='/community/<%= community.id %>'>

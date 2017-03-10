@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING,
     cover: DataTypes.JSON,
     igdbId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    loaned: DataTypes.BOOLEAN,
+    askerId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

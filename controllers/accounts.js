@@ -56,14 +56,32 @@ router.get('/logout', function(req, res) {
 router.get('/', isLoggedIn , function(req, res) {
 	//console.log(req.user);					//debug code
 	var currentUser = req.user;
-
-	db.user.find({
-		where: {id: currentUser.id},
-		include: [db.game, db.community]
+	db.game.findAll()
+	.then(function(games) {
+		res.send(games)
 	})
-	.then(function(user) {
-		res.render('account', {user: user});
-	})
+	// db.user.find({
+	// 	where: {id: currentUser.id},
+	// 	include: [db.game, db.community]
+	// })
+	// .then(function(user) {
+	// 	//queries for all requested to be loaned
+	// 	db.game.findAll({
+	// 		where: {
+	// 			userId: currentUser.id,
+	// 			askerId: {$not: null}
+	// 		},
+	// 		include: [db.user]
+	// 	})
+	// 	.then(function(games) {	
+	// 		console.log(games[0].askerId)
+	// 		res.send(games)
+	// 		// res.render('account', {
+	// 		// 	user: user,
+	// 		// 	games: games
+	// 		// });
+	// 	})
+	// })
 });
 
 

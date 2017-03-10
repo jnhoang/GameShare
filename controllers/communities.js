@@ -62,7 +62,9 @@ router.get('/:id', function(req, res) {
 		include: [db.user]
 	})
 	.then(function(community) {
+		// finds all the users in a community
 		var usersArr = getUserId(community.users);
+		// find all games associated with users in usersArr
 		db.game.findAll({
 			where: {userId: {$in: usersArr}},
 			include: [db.user]

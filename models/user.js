@@ -21,7 +21,8 @@ module.exports = function(sequelize, DataTypes) {
           msg: 'Password must be between 6 and 10 characters'
         }
       }
-    }
+    },
+    image: DataTypes.STRING
   }, {
     hooks: {
       beforeCreate: function(createdUser, options, cb) {
