@@ -9,11 +9,11 @@
 
 
 <h1>Games You Own</h1>
-	<div class='row userGames'>
-		<% user.games.forEach(function(game) { %>
-			<div class='col-xs-3'>
-				<div class='imgContainer'><img src='<%=gameCoverURL + game.cover %>' class='coverImgs'></div>
-				<p><%= game.title %></p>
-			</div>
-		<% }) %>
-	</div>
+<div class='row userGames'>
+	<% user.games.forEach(function(game) { %>
+		<div class='col-xs-12 col-sm-4 col-md-2 imgContainer'>
+			<img src='<%=gameCoverURL + game.cover %>' class='coverImgs'>
+			<p><%= game.title %></p>
+		</div>
+	<% }) %>
+</div>
