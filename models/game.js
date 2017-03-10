@@ -2,11 +2,11 @@
 module.exports = function(sequelize, DataTypes) {
   var game = sequelize.define('game', {
     title: DataTypes.STRING,
-    cover: DataTypes.JSON,
+    cover: DataTypes.TEXT,
     igdbId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     loaned: DataTypes.BOOLEAN,
-    askerId: DataTypes.INTEGER
+    askerUsername: DataTypes.TEXT
   }, {
     classMethods: {
       associate: function(models) {
