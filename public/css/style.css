@@ -110,8 +110,6 @@ h1 {
 	color: white;
 }
 .userLoanList {
-	display: flex;
-	justify-content: space-around;
 	margin: 0 5px;
 	padding: 10px 0px;
 	background-color: #ECF0F1;
@@ -123,6 +121,11 @@ h1 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 10px;
+}
+.userBorrowedHalf {
+	display: flex;
+	flex-wrap: wrap;
 }
 .loanList {
 	display: flex;

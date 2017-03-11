@@ -3,24 +3,34 @@
 
 
 <!-- games the current user is loaning -->
-<% if (currentUserLoaning != 0) { %>
+<% if (currentUserLoaning.length != 0 || currentUserLoanRequests.length != 0) { %>
 	<h1>Games You Borrowed</h1>
-	<div class='userLoanList'>
-		<% currentUserLoaning.forEach(function(game) { %>
-			<div class='userLoanedInfoBox'>
-				<div class='tinyCover'>
-					<img src='<%=gameCoverSmallURL + game.cover %>' class='coverImgs'>
-				</div>
+	<div class='row userLoanList'>
+		<div class='col-xs-6 col-sm-3'>
+			<strong><p>Games You have Requested</p></strong>
+			<% currentUserLoanRequests.forEach(function(game) { %>
+				<p><%=game.title%>: <%= game.user.username%></p>
+			<% }) %>
+		</div>
 
-				<div>
-					<form method='PUT' action='/account/return/<%= game.id %>' class='returnGame'>
-						<button type='submit' class='btn'>
-							Return <span class='glyphicon glyphicon-log-out'></span>
-						</button>
-					</form>
+		<div class='col-xs-6 col-sm-9 userBorrowedHalf'>
+			<strong><p>Games You're Borrowing</p></strong>
+			<% currentUserLoaning.forEach(function(game) { %>
+				<div class='userLoanedInfoBox'>
+					<div class='tinyCover'>
+						<img src='<%=gameCoverSmallURL + game.cover %>' class='coverImgs'>
+					</div>
+
+					<div>
+						<form method='PUT' action='/account/return/<%= game.id %>' class='returnGame'>
+							<button type='submit' class='btn'>
+								Return <span class='glyphicon glyphicon-log-out'></span>
+							</button>
+						</form>
+					</div>
 				</div>
-			</div>
-		<% }) %>
+			<% }) %>
+		</div>
 	</div>
 <% } %>
 

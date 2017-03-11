@@ -78,12 +78,20 @@ router.get('/', isLoggedIn , function(req, res) {
 					]
 				}, { userId: currentUser.id }
 				]
-			}
+			},
+			include:[db.user]
 		})
 		.then(function(games) {
 			var gamesOnLoan = [];
 			var gamesRequested = [];
 			var currentUserLoaning = [];
+			var currentUserLoanRequests = [];
+
+			games.forEach(function(game) {
+				if (game.askerUsername == currentUser.username && !game.loaned) {
+					currentUserLoanRequests.push(game);
+				}
+			})
 
 			games.forEach(function(game) {
 				if (game.askerUsername == currentUser.username && game.loaned) {
@@ -109,7 +117,8 @@ router.get('/', isLoggedIn , function(req, res) {
 				games: games,
 				gamesOnLoan: gamesOnLoan,
 				gamesRequested: gamesRequested,
-				currentUserLoaning: currentUserLoaning
+				currentUserLoaning: currentUserLoaning,
+				currentUserLoanRequests: currentUserLoanRequests
 			});
 		})
 	});
