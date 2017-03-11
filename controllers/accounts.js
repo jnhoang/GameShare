@@ -39,7 +39,7 @@ router.post('/signup', function(req, res) {
 // /POST, Login
 router.post('/login', passport.authenticate('local', {
 	successRedirect: '/account',
-	successFlash: 'Good job, you logged in',
+	successFlash: 'Hey, Welcome back',
 	failureRedirect: '/',
 	failureFlash: 'Invalid credentials'
 }));
@@ -92,15 +92,14 @@ router.get('/', isLoggedIn , function(req, res) {
 			});
 			
 			games.forEach(function(game) {
-				if (game.askerUsername &&  game.askerUsername != currentUser.username && game.loaned) {
+				if (game.askerUsername && game.askerUsername != currentUser.username && 
+					game.loaned && game.userId == currentUser.id) {
 					gamesOnLoan.push(game);
 				}
 			});
-				console.log(gamesOnLoan)
-				console.log(currentUserLoaning)
 
 			games.forEach(function(game) {
-				if (game.askerUsername && !game.loaned) {
+				if (game.askerUsername && game.askerUsername != currentUser.username && !game.loaned) {
 					gamesRequested.push(game);
 				}
 			});

@@ -50,6 +50,7 @@ footer {
 a:hover {
 	color: #5DFFCC;
 	text-decoration: none;
+	cursor: pointer;
 }
 /*Home*/
 .homeEvenRow {
@@ -120,6 +121,11 @@ a:hover {
 	width: 100%;
 	height: 150px;
 }
+.inlineLoan {
+	display: flex;
+	justify-content: space-between;
+	margin: 6px 0;
+}
 /*Community*/
 .communitySetting {
 	background-color: #FAFAFB;
@@ -144,6 +150,24 @@ a:hover {
 	background-color: #ECF0F1;
 	border-top: 3px solid #5DFFCC;
 	border-bottom: 3px solid #5DFFCC;
+}
+.loanList {
+	display: flex;
+	justify-content: space-around;
+	padding: 10px 0px;
+	background-color: #ECF0F1;
+	border-top: 3px solid #50FF65;
+	border-bottom: 3px solid #50FF65;
+}
+.acceptLoanRequest,
+.denyLoanRequest {
+	display: inline-block;
+}
+.loanBtn {
+	height: 23px;
+	width: 25px;
+	display: flex;
+	justify-content: center;
 }
 .userBox {
 	height: 150px;

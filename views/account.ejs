@@ -1,37 +1,52 @@
 <% var gameCoverURL = 'https://images.igdb.com/igdb/image/upload/t_cover_big/'%>
-<h1>Your Communities</h1>
 <div class='divider-10'></div>
 
-<div class='shortList'>
-	<!-- User's games that have been requested by others -->
-	<% gamesRequested.forEach(function(game) { %>
+<% if (gamesRequested.length != 0 || gamesOnLoan.length != 0) { %>
+	<h1>Game Requests</h1>
+	<div class='loanList'>
+		<!-- User's games that have been requested by others -->
 		<div>
-			<%= game.title %>: <%= game.askerUsername %>
-			
-			<form method='PUT' action='/account/accept/<%= game.id %>' class='acceptLoanRequest'>
-				<button type='submit' class='btn btn-success raised'>
-					<span class='glyphicon glyphicon-ok'></span>
-				</button>
-			</form>
+			<strong><p>Your Games requested to be loaned</p></strong>
+			<% gamesRequested.forEach(function(game) { %>
+				<div class='inlineLoan'>
+					<div>
+						<em><%= game.askerUsername %></em>: <%= game.title %>
+					</div>
+					<div>
+						<form method='PUT' action='/account/accept/<%= game.id %>' class='acceptLoanRequest'>
+							<button type='submit' class='loanBtn btn btn-success raised'>
+								<span class='glyphicon glyphicon-ok'></span>
+							</button>
+						</form>
 
-			<form method='PUT' action='/account/deny/<%= game.id %>' class='denyLoanRequest'>
-				<button type='submit' class='btn btn-danger raised'>
-					<span class='glyphicon glyphicon-remove'></span>
-				</button>
-			</form>
+						<form method='PUT' action='/account/deny/<%= game.id %>' class='denyLoanRequest'>
+							<button type='submit' class='loanBtn btn btn-danger raised'>
+								<span class='glyphicon glyphicon-remove'></span>
+							</button>
+						</form>
+					</div>
+				</div>
+			<% }) %>
 		</div>
-	<% }) %>
+	
+		<div>
+			<!-- Games of the current user that are on loan -->
+			<strong><p>Games On Loan</p></strong>
+			<% gamesOnLoan.forEach(function(game) {%>
+				<p><%=game.title%>: <%= game.askerUsername%></p>
+			<% }) %>
+		</div>
+	</div>
+<% } %>
 
 	<!-- games the current user is loaning -->
 	<% currentUserLoaning.forEach(function(game) { %>
 		<p>curent user loaning: <%= game.askerUsername %></p>
 	<% }) %>
 
+<h1>Your Communities</h1>
 
-	<!-- Games of the current user that are on loan -->
-	<% gamesOnLoan.forEach(function(game) {%>
-		<p><%=game.title%> on loan to <%= game.askerUsername%></p>
-	<% }) %>
+<div class='shortList'>
 	<a href='/community'>
 		<div class='userBox text-center'>
 			<div class='addBox communityAddBox'>
@@ -40,9 +55,7 @@
 			<p class='text-center'>Find a Community</p>
 		</div>
 	</a>
-</div>
 
-<div class='short list'>
 	<% user.communities.forEach(function(community) { %>
 		<div class='userBox text-center'>
 			<a href='/community/<%= community.id %>'>
