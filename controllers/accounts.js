@@ -69,7 +69,8 @@ router.get('/', isLoggedIn , function(req, res) {
 		db.game.findAll({
 			where: {
 				userId: currentUser.id,
-				askerUsername: {$not: null}
+				askerUsername: {$not: null},
+				loaned: {$not: true}
 			}
 		})
 		.then(function(games) {
