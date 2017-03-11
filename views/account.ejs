@@ -7,9 +7,8 @@
 		
 		<div>
 			<%= game.title %>: <%= game.askerUsername %>
-			<form method='PUT' name='/account/accept/'<%= game.id %> action='/account/accept' class='acceptLoanRequest'>
+			<form method='PUT' action='/account/accept/<%= game.id %>' class='acceptLoanRequest'>
 				<span class='glyphicon glyphicon-remove'></span>
-				<input type='hidden' name='game' value='<%= game %>'>
 				<button type='submit' class='btn btn-success raised'>
 					<span class='glyphicon glyphicon-ok'></span>
 				</button>

@@ -55,18 +55,14 @@ $('document').ready(function() {
 	// accept user request to borrow a game
 	$('.acceptLoanRequest').on('submit', function(e) {
 		e.preventDefault();
-		console.log($(this))
-		var acceptURL = $(this).attr('name');
-		var gameData = $(this).serialize();
-		console.log('before the ajax call');
+		var acceptURL = $(this).attr('action');
 
 		$.ajax({
 			method: 'PUT',
-			url: acceptURL,
-			data: gameData
+			url: acceptURL
 		})
 		.done(function(data) {
-			console.log('in the done fx after ajax call')
+			console.log('hitting Done')
 			window.location = '/account'
 		});
 	});

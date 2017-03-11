@@ -90,15 +90,14 @@ router.get('/', isLoggedIn , function(req, res) {
 });
 
 // /PUT, game is on Borrow
-router.put('/account/accept/:id', function(req, res) {
-	var gameId = req.body.id;
-	console.log( '**************************', req.body)
+router.put('/accept/:id', function(req, res) {
+	var gameId = req.params.id;
 	
-	db.game.update({loaned: true}, 
-	{ where: {id: gameId} })
+	db.game.update(
+	{loaned: true},
+	{where: {id: gameId}})
 	.then (function(gameLoaned) {
-		res.redirect('/account');
-		req.flash('success', 'game loaned');
+		res.sendStatus(200);
 	})
 })
 
