@@ -1,6 +1,6 @@
 /*Layout*/
 .navBar {
-	border-bottom: 3px solid #00bf6f;
+	border-bottom: 3px solid #5DFFCC;
 	margin: 5px;
 	padding: 10px;
 	border-radius: 5px 5px 0 0;	
@@ -9,7 +9,7 @@
 	text-shadow: 3px 3px 2px black;
 }
 footer {
-	border-top: 3px solid #00bf6f;
+	border-top: 3px solid #5DFFCC;
 	margin: 5px;
 	padding: 10px;
 	border-radius: 0 0 5px 5px;	
@@ -49,11 +49,33 @@ footer {
 /*Home*/
 .homeEvenRow {
 	background-color: #FAFAFB;
+	border-top: 3px solid #50FF65;
+	border-bottom: 3px solid #50FF65;
+	margin: 0 10px;
+}
+.homeOddRow {
+	background-color: #FAFAFB;
 	border-top: 3px solid #5DFFCC;
 	border-bottom: 3px solid #5DFFCC;
+	margin: 0 10px;
+}
+.siteDescription {
+	height: 350px;
 }
 .siteDescription p {
 	font-size: 24px;
+}
+.siteDescriptionImg {
+	max-height: 100%;
+	max-width: 65%;
+}
+.searchExample {
+	display: flex;
+	justify-content: center;
+}
+.parallaxImg {
+	height: 400px;
+	margin: 0 5px;
 }
 /*Search*/
 .searchBar {

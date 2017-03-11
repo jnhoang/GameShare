@@ -90,18 +90,12 @@ router.post('/add', function(req, res) {
 							userId: user.id
 						}
 					})
-					// user.createGame({
-					// 	title: gameData.name,
-					// 	cover: gameData.cover.cloudinary_id,
-					// 	igdbId: gameData.id,
-					// 	userId: user.id
-					// })
 					.spread(function(game, wasAdded) {
 						if (wasAdded) {	
-							req.flash('success', 'game added to your library');						
+							req.flash('success', 'Game added to your library');						
 							res.redirect('/account');
 						} else {
-							req.flash('error', 'game already in your library');
+							req.flash('error', 'Game already in your library');
 							res.redirect('/search');
 						}
 					});
