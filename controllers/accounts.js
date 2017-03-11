@@ -70,39 +70,60 @@ router.get('/', isLoggedIn , function(req, res) {
 			where: {
 				userId: currentUser.id,
 				askerUsername: {$not: null},
-				loaned: {$not: true}
 			}
 		})
 		.then(function(games) {
 			var gamesOnLoan = [];
-
+			var gamesRequested = [];
 			games.forEach(function(game) {
 				if (game.askerUsername && game.loaned) {
+					console.log('already loaned', game.title, game.askerUsername)
 					gamesOnLoan.push(game);
 				}
-			})
+			});
+
+			games.forEach(function(game) {
+				if (game.askerUsername && !game.loaned) {
+					console.log('requested, not loaned', game.title, game.askerUsername)
+					gamesRequested.push(game);
+				}
+			});
+
 			res.render('account', {
 				user: user,
 				games: games,
-				gamesOnLoan: gamesOnLoan
+				gamesOnLoan: gamesOnLoan,
+				gamesRequested: gamesRequested
 			});
 		})
 	})
 });
 
-// /PUT, game is on Borrow
+// /PUT, game request accepted
 router.put('/accept/:id', function(req, res) {
 	var gameId = req.params.id;
 	
 	db.game.update(
 	{loaned: true},
 	{where: {id: gameId}})
-	.then (function(gameLoaned) {
+	.then (function() {
+		req.flash('success', 'Lending request has been accepted')
 		res.sendStatus(200);
 	})
 })
 
-
+// /PUT, game borrow request denied
+router.put('/deny/:id', function(req, res) {
+	var gameId = req.params.id;
+	
+	db.game.update(
+	{askerUsername: null},
+	{where: {id: gameId}})
+	.then (function() {
+		req.flash('success', 'Lending request has been denied')
+		res.sendStatus(200);
+	})
+})
 
 
 

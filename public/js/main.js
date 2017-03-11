@@ -62,11 +62,23 @@ $('document').ready(function() {
 			url: acceptURL
 		})
 		.done(function(data) {
-			console.log('hitting Done')
 			window.location = '/account'
 		});
 	});
 
+	// deny user request to borrow a game
+	$('.denyLoanRequest').on('submit', function(e) {
+		e.preventDefault();
+		var acceptURL = $(this).attr('action');
+
+		$.ajax({
+			method: 'PUT',
+			url: acceptURL
+		})
+		.done(function(data) {
+			window.location = '/account'
+		});
+	});
 });
 
 

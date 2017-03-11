@@ -3,20 +3,28 @@
 <div class='divider-10'></div>
 
 <div class='shortList'>
-	<% games.forEach(function(game) { %>
+	<% gamesRequested.forEach(function(game) { %>
 		
 		<div>
 			<%= game.title %>: <%= game.askerUsername %>
+			
 			<form method='PUT' action='/account/accept/<%= game.id %>' class='acceptLoanRequest'>
-				<span class='glyphicon glyphicon-remove'></span>
 				<button type='submit' class='btn btn-success raised'>
 					<span class='glyphicon glyphicon-ok'></span>
 				</button>
 			</form>
 
+			<form method='PUT' action='/account/deny/<%= game.id %>' class='denyLoanRequest'>
+				<button type='submit' class='btn btn-danger raised'>
+					<span class='glyphicon glyphicon-remove'></span>
+				</button>
+			</form>
 		</div>
+	<% }) %>
 
 
+	<% gamesOnLoan.forEach(function(game) {%>
+		<p><%=game.title%> on loan to <%= game.askerUsername%></p>
 	<% }) %>
 	<a href='/community'>
 		<div class='userBox text-center'>

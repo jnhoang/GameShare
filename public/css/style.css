@@ -46,6 +46,11 @@ footer {
 	margin-bottom: 15px;
 	position: relative;
 }
+
+a:hover {
+	color: #5DFFCC;
+	text-decoration: none;
+}
 /*Home*/
 .homeEvenRow {
 	background-color: #FAFAFB;
