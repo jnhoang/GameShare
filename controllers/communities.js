@@ -91,9 +91,6 @@ router.post('/join', function(req, res) {
 		}
 	})
 	.spread(function(jointTable, userAdded) {
-		// userAdded ? req.flash('success', 'Welcome to the community')
-		// : 			req.flash('error', 'You\'re already a member :) ');
-
 		if (userAdded) {
 			req.flash('success', 'Welcome to the community');
 		} else {
@@ -128,6 +125,8 @@ router.delete('/leave/:communityId', function(req, res) {
 		}
 	});
 });
+
+
 
 // export
 module.exports = router;

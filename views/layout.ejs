@@ -19,7 +19,10 @@
 				<a href='/search' class='btn btn-link navLinks'>Games</a>
 				<a href='/community' class='btn btn-link navLinks'>Communities</a>
 				<% if (currentUser) { %>
-					<span class='rightNav'><%= currentUser.username %></span>
+					<span class='rightNav'>
+						<span class='glyphicon glyphicon-user'></span>
+						<%= currentUser.username %>
+					</span>
 					<a href='/account/logout' class='btn btn-danger raised rightNav'>Logout</a>
 				<% }; %>
 			</div>

@@ -12,6 +12,8 @@
 	</div>
 </div>
 
+
+
 <h2>Users</h2>
 <div class='divider-10'></div>
 <div class='shortList containerBox'>
@@ -27,12 +29,25 @@
 <div class='divider-10'></div>
 <div class='row userGames containerBox'>
 	<% games.forEach(function(game) { %>
-		<div class='col-xs-12 col-sm-4 col-md-2 imgContainer'>
-			<a href='/search/searchResult/<%= game.igdbId %>'>
-				<img src='<%= gameCoverURL + game.cover %>' class='img-responsive'>
-			</a>
-			<p><%= game.title %></p>
-			<p><%= game.user.username %></p>
+		<div class='col-xs-12 col-sm-3 col-md-4 col-lg-6 gameContainer'>
+			<div class='imgContainer'>
+				<a href='/search/searchResult/<%=game.igdbId%>'>
+					<img src='<%=gameCoverURL + game.cover %>' class='coverImgs'>
+				</a>
+			</div>
+			<p class='text-center'><%= game.title %></p>
+			<%= game.user.username %>
+			<% if (game.user.id != currentUser.id) { %>
+				<form method='PUT' action='/account/request/<%= game.id %>' class='requestGame'>
+					<button type='submit' class='btn'>
+							Request 
+							<span class='glyphicon glyphicon-new-window'></span>
+					</button>
+				</form>
+			<% } %>
+
+
+			
 		</div>
 	<% }); %>
 </div>

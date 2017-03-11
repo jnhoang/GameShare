@@ -166,7 +166,22 @@ router.put('/return/:id', function(req, res) {
 	});
 });
 
-
+// /PUT, request to borrow a game
+router.put('/request/:id', function(req, res) {
+	var gameId = req.params.id;
+	var currentUser = req.user
+	db.game.update(
+		{
+			askerUsername: currentUser.username,
+		}, {
+			where: {id: gameId}
+		}
+	)
+	.then (function() {
+		req.flash('success', 'request sent');
+		res.sendStatus(200);
+	})
+});
 
 
 // export

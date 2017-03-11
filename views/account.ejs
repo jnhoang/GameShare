@@ -12,7 +12,6 @@
 					<img src='<%=gameCoverSmallURL + game.cover %>' class='coverImgs'>
 				</div>
 
-				<%= game.askerUsername %>
 				<div>
 					<form method='PUT' action='/account/return/<%= game.id %>' class='returnGame'>
 						<button type='submit' class='btn'>
@@ -37,7 +36,6 @@
 					<div>
 						<em><%= game.askerUsername %></em>: <%= game.title %>
 					</div>
-
 					<div>
 						<form method='PUT' action='/account/accept/<%= game.id %>' class='acceptLoanRequest'>
 							<button type='submit' class='loanBtn btn btn-success raised'>
@@ -97,9 +95,9 @@
 				<div class='addBox gameAddBox'>
 					<span class='glyphicon glyphicon-plus'></span>
 				</div>
-				<p class='text-center'>Add a Game</p>
 			</a>
 		</div>
+		<a href='/search'><p class='text-center'>Add a Game</p></a>
 	</div>
 
 	<% user.games.forEach(function(game) { %>

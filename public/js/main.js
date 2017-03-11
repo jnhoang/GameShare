@@ -94,7 +94,19 @@ $('document').ready(function() {
 		});
 	});
 
+	// request to borrow a game
+	$('.requestGame').on('submit', function(e) {
+		e.preventDefault();
+		var requestURL = $(this).attr('action');
 
+		$.ajax({
+			method: 'PUT',
+			url: requestURL
+		})
+		.done(function(data) {
+			window.location = '/account'
+		});
+	});
 
 });
 
