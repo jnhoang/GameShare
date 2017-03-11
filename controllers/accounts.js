@@ -61,30 +61,46 @@ router.get('/', isLoggedIn , function(req, res) {
 	var currentUser = req.user;
 
 	db.user.find({
-		where: {id: currentUser.id},
+		where: {
+			id: currentUser.id,
+		},
 		include: [db.game, db.community]
 	})
 	.then(function(user) {
 		//queries for all requested to be loaned
 		db.game.findAll({
 			where: {
-				userId: currentUser.id,
-				askerUsername: {$not: null},
+				$or: [
+				{ 
+					$or: [
+						{ askerUsername: currentUser.username },
+						{ askerUsername: {$not: null} },
+					]
+				}, { userId: currentUser.id }
+				]
 			}
 		})
 		.then(function(games) {
 			var gamesOnLoan = [];
 			var gamesRequested = [];
+			var currentUserLoaning = [];
+
 			games.forEach(function(game) {
-				if (game.askerUsername && game.loaned) {
-					console.log('already loaned', game.title, game.askerUsername)
+				if (game.askerUsername == currentUser.username && game.loaned) {
+					currentUserLoaning.push(game);
+				}
+			});
+			
+			games.forEach(function(game) {
+				if (game.askerUsername &&  game.askerUsername != currentUser.username && game.loaned) {
 					gamesOnLoan.push(game);
 				}
 			});
+				console.log(gamesOnLoan)
+				console.log(currentUserLoaning)
 
 			games.forEach(function(game) {
 				if (game.askerUsername && !game.loaned) {
-					console.log('requested, not loaned', game.title, game.askerUsername)
 					gamesRequested.push(game);
 				}
 			});
@@ -93,7 +109,8 @@ router.get('/', isLoggedIn , function(req, res) {
 				user: user,
 				games: games,
 				gamesOnLoan: gamesOnLoan,
-				gamesRequested: gamesRequested
+				gamesRequested: gamesRequested,
+				currentUserLoaning: currentUserLoaning
 			});
 		})
 	})

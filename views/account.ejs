@@ -3,8 +3,8 @@
 <div class='divider-10'></div>
 
 <div class='shortList'>
+	<!-- User's games that have been requested by others -->
 	<% gamesRequested.forEach(function(game) { %>
-		
 		<div>
 			<%= game.title %>: <%= game.askerUsername %>
 			
@@ -22,7 +22,13 @@
 		</div>
 	<% }) %>
 
+	<!-- games the current user is loaning -->
+	<% currentUserLoaning.forEach(function(game) { %>
+		<p>curent user loaning: <%= game.askerUsername %></p>
+	<% }) %>
 
+
+	<!-- Games of the current user that are on loan -->
 	<% gamesOnLoan.forEach(function(game) {%>
 		<p><%=game.title%> on loan to <%= game.askerUsername%></p>
 	<% }) %>
@@ -34,6 +40,9 @@
 			<p class='text-center'>Find a Community</p>
 		</div>
 	</a>
+</div>
+
+<div class='short list'>
 	<% user.communities.forEach(function(community) { %>
 		<div class='userBox text-center'>
 			<a href='/community/<%= community.id %>'>
@@ -42,7 +51,7 @@
 			</a>
 		</div>
 	<% }) %>
- </div>
+</div>
 
 <h1>Games You Own</h1>
 <div class='divider-10'></div>
