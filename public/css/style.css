@@ -95,6 +95,10 @@ a:hover {
 	padding-bottom: 20px;
 }
 /*Account*/
+h1 {
+	font-size: 30px;
+	margin: 0.5em 2em;
+}
 .userGames {
 	border-top: 3px solid #50D6FF;
 	border-bottom: 3px solid #50D6FF;
@@ -104,6 +108,47 @@ a:hover {
 .glyphicon-plus {
 	font-size: 35px;
 	color: white;
+}
+.userLoanList {
+	display: flex;
+	justify-content: space-around;
+	margin: 0 5px;
+	padding: 10px 0px;
+	background-color: #ECF0F1;
+	border-top: 3px solid #50D6FF;
+	border-bottom: 3px solid #50D6FF;
+}
+.userLoanedInfoBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.loanList {
+	display: flex;
+	justify-content: space-around;
+	margin: 0 5px;
+	padding: 10px 0px;
+	background-color: #ECF0F1;
+	border-top: 3px solid #50FF65;
+	border-bottom: 3px solid #50FF65;
+}
+.acceptLoanRequest,
+.denyLoanRequest {
+	display: inline-block;
+}
+.tinyCover {
+	height:75px;
+	width: 75px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5px;
+}
+.loanBtn {
+	height: 23px;
+	width: 25px;
+	display: flex;
+	justify-content: center;
 }
 .addBox {
 	margin-bottom: 5px;
@@ -144,6 +189,7 @@ a:hover {
 }
 .shortList {
 	padding: 10px 0;
+	margin: 0 5px;
 	display: flex;
 	justify-content: space-around;
 	align-content: : center;
@@ -151,24 +197,7 @@ a:hover {
 	border-top: 3px solid #5DFFCC;
 	border-bottom: 3px solid #5DFFCC;
 }
-.loanList {
-	display: flex;
-	justify-content: space-around;
-	padding: 10px 0px;
-	background-color: #ECF0F1;
-	border-top: 3px solid #50FF65;
-	border-bottom: 3px solid #50FF65;
-}
-.acceptLoanRequest,
-.denyLoanRequest {
-	display: inline-block;
-}
-.loanBtn {
-	height: 23px;
-	width: 25px;
-	display: flex;
-	justify-content: center;
-}
+
 .userBox {
 	height: 150px;
 	width: 150px;

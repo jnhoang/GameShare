@@ -69,16 +69,33 @@ $('document').ready(function() {
 	// deny user request to borrow a game
 	$('.denyLoanRequest').on('submit', function(e) {
 		e.preventDefault();
-		var acceptURL = $(this).attr('action');
+		var DenyURL = $(this).attr('action');
 
 		$.ajax({
 			method: 'PUT',
-			url: acceptURL
+			url: DenyURL
 		})
 		.done(function(data) {
 			window.location = '/account'
 		});
 	});
+
+	// return a borrowed game
+	$('.returnGame').on('submit', function(e) {
+		e.preventDefault();
+		var returnURL = $(this).attr('action');
+
+		$.ajax({
+			method: 'PUT',
+			url: returnURL
+		})
+		.done(function(data) {
+			window.location = '/account'
+		});
+	});
+
+
+
 });
 
 

@@ -1,9 +1,34 @@
-<% var gameCoverURL = 'https://images.igdb.com/igdb/image/upload/t_cover_big/'%>
-<div class='divider-10'></div>
+<% var gameCoverBigURL = 'https://images.igdb.com/igdb/image/upload/t_cover_big/'%>
+<% var gameCoverSmallURL = 'https://images.igdb.com/igdb/image/upload/t_cover_small/'%>
 
-<% if (gamesRequested.length != 0 || gamesOnLoan.length != 0) { %>
+
+<!-- games the current user is loaning -->
+<% if (currentUserLoaning != 0) { %>
+	<h1>Games You Borrowed</h1>
+	<div class='userLoanList'>
+		<% currentUserLoaning.forEach(function(game) { %>
+			<div class='userLoanedInfoBox'>
+				<div class='tinyCover'>
+					<img src='<%=gameCoverSmallURL + game.cover %>' class='coverImgs'>
+				</div>
+
+				<%= game.askerUsername %>
+				<div>
+					<form method='PUT' action='/account/return/<%= game.id %>' class='returnGame'>
+						<button type='submit' class='btn'>
+							Return <span class='glyphicon glyphicon-log-out'></span>
+						</button>
+					</form>
+				</div>
+			</div>
+		<% }) %>
+	</div>
+<% } %>
+
+<% if (gamesRequested.length != 0 || gamesOnLoan.length != 0) { %>	
+	
 	<h1>Game Requests</h1>
-	<div class='loanList'>
+	<div class='loanList containerBox'>
 		<!-- User's games that have been requested by others -->
 		<div>
 			<strong><p>Your Games requested to be loaned</p></strong>
@@ -12,6 +37,7 @@
 					<div>
 						<em><%= game.askerUsername %></em>: <%= game.title %>
 					</div>
+
 					<div>
 						<form method='PUT' action='/account/accept/<%= game.id %>' class='acceptLoanRequest'>
 							<button type='submit' class='loanBtn btn btn-success raised'>
@@ -25,6 +51,8 @@
 							</button>
 						</form>
 					</div>
+
+					
 				</div>
 			<% }) %>
 		</div>
@@ -39,14 +67,8 @@
 	</div>
 <% } %>
 
-	<!-- games the current user is loaning -->
-	<% currentUserLoaning.forEach(function(game) { %>
-		<p>curent user loaning: <%= game.askerUsername %></p>
-	<% }) %>
-
 <h1>Your Communities</h1>
-
-<div class='shortList'>
+<div class='shortList containerBox'>
 	<a href='/community'>
 		<div class='userBox text-center'>
 			<div class='addBox communityAddBox'>
@@ -67,9 +89,7 @@
 </div>
 
 <h1>Games You Own</h1>
-<div class='divider-10'></div>
-
-<div class='row userGames'>
+<div class='row userGames containerBox'>
 	<div class='col-xs-12 col-sm-4 col-md-2 imgContainer'>
 		<a href='/search'>
 			<div class='addBox gameAddBox'>
@@ -80,7 +100,7 @@
 	</div>
 	<% user.games.forEach(function(game) { %>
 		<div class='col-xs-12 col-sm-4 col-md-2 imgContainer'>
-			<a href='/search/searchResult/<%=game.igdbId%>'><img src='<%=gameCoverURL + game.cover %>' class='coverImgs'></a>
+			<a href='/search/searchResult/<%=game.igdbId%>'><img src='<%=gameCoverBigURL + game.cover %>' class='coverImgs'></a>
 			<p><%= game.title %></p>
 		</div>
 	<% }) %>

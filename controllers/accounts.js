@@ -112,7 +112,7 @@ router.get('/', isLoggedIn , function(req, res) {
 				currentUserLoaning: currentUserLoaning
 			});
 		})
-	})
+	});
 });
 
 // /PUT, game request accepted
@@ -120,26 +120,51 @@ router.put('/accept/:id', function(req, res) {
 	var gameId = req.params.id;
 	
 	db.game.update(
-	{loaned: true},
-	{where: {id: gameId}})
+		{loaned: true},
+		{
+			where: 
+			{id: gameId}
+		}
+	)
 	.then (function() {
-		req.flash('success', 'Lending request has been accepted')
+		req.flash('success', 'Lending request has been accepted');
 		res.sendStatus(200);
-	})
-})
+	});
+});
 
 // /PUT, game borrow request denied
 router.put('/deny/:id', function(req, res) {
 	var gameId = req.params.id;
 	
 	db.game.update(
-	{askerUsername: null},
-	{where: {id: gameId}})
+		{askerUsername: null},
+		{where: 
+			{id: gameId}
+		}
+	)
 	.then (function() {
-		req.flash('success', 'Lending request has been denied')
+		req.flash('success', 'Lending request has been denied');
 		res.sendStatus(200);
-	})
-})
+	});
+});
+
+// /PUT, return a borrowed game
+router.put('/return/:id', function(req, res) {
+	var gameId = req.params.id;
+
+	db.game.update(
+		{
+			askerUsername: null,
+			loaned: false
+		}, {
+			where: {id: gameId}
+		}
+	)
+	.then (function() {
+		req.flash('success', 'Game returned');
+		res.sendStatus(200);
+	});
+});
 
 
 
