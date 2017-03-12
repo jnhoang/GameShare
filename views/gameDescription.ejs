@@ -3,17 +3,24 @@ var imageURL = 'https://images.igdb.com/igdb/image/upload/'
 var coverExt = 't_logo_med/'
 var bigImageExt = 't_screenshot_huge/'
 var smallImageExt = 't_screenshot_med/'
+if (!gameData.screenshots) {
+	gameData.screenshots = [{cloudinary_id: 'blank'}];
+}
+if (!gameData.videos) {
+	gameData.videos = [{standbyVideo: 'Hey yeah'},{video_id: 'ZZ5LpwO-An4'}];
+}
 %>
-
 <div class='divider-15'></div>
 	<% include partials/searchBar %>
 <div class='divider-15'></div>
 
+<% console.log(gameData.screenshots) %>
 <div class='parallax-window coolBackground' data-parallax='scroll' data-image-src='<%= imageURL + bigImageExt + gameData.screenshots[0].cloudinary_id%>'>
 	<h1 class='gameTitle'><%= gameData.name %></h1>
 	<img src='<%= imageURL + coverExt + gameData.cover.cloudinary_id %>' class='singleCoverImg'>
 </div>
 	
+
 <div>
 	<% if (currentUser) { %>
 	<div class='divider-15'></div>
@@ -45,8 +52,15 @@ var smallImageExt = 't_screenshot_med/'
 				<img src='<%= imageURL + smallImageExt + screenshot.cloudinary_id %>'>
 			</div>
 		<% }) %>
+
+		<% gameData.videos.forEach(function(video) { %>
+			<div>
+				<iframe width="520" height="315" src="https://www.youtube.com/embed/<%=video.video_id %>"></iframe>
+			</div>
+		<% }) %>
 	</div>
 </div>
+
 
 
 

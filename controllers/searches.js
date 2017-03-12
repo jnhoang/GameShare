@@ -43,7 +43,7 @@ router.get('/searchResult/:id', function(req, res) {
 	request({
 		headers: apiHeaders,
 		url: igdbURL + gameId,
-		qs: {fields: 'name,cover,screenshots,summary'}
+		qs: {fields: 'name,cover,screenshots,summary,videos'}
 	}, function(error, response, body) {
 		if(!error && response.statusCode == 200) {
 			var gameData = JSON.parse(body)[0];
