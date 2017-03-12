@@ -16,10 +16,10 @@
 
 <h2>Users</h2>
 <div class='divider-10'></div>
-<div class='shortList containerBox'>
+<div class='shortList'>
 	<% community.users.forEach(function(user) { %>
 		<div class='userBox'>
-			<img src='http://lorempixel.com/100/100/'>
+			<img src='http://www.fillmurray.com/100/100'>
 			<p><%= user.username %></p>
 		</div>
 	<% }); %>
@@ -27,7 +27,7 @@
 
 <h2>Games</h2>
 <div class='divider-10'></div>
-<div class='row userGames containerBox'>
+<div class='row userGames'>
 	<% games.forEach(function(game) { %>
 		<div class='col-xs-6 col-sm-3 col-md-4 col-lg-6 gameContainer'>
 			<div class='imgContainer'>
@@ -37,13 +37,22 @@
 			</div>
 			<p class='text-center'><%= game.title %></p>
 			<%= game.user.username %>
-			<% if (game.user.id != currentUser.id) { %>
+			<% if (game.user.id != currentUser.id && game.askerUsername != currentUser.username) { %>
 				<form method='PUT' action='/account/request/<%= game.id %>' class='requestGame'>
 					<button type='submit' class='btn'>
 							Request 
 							<span class='glyphicon glyphicon-new-window'></span>
 					</button>
 				</form>
+			<% } %>
+			<% if (game.askerUsername == currentUser.username && game.loaned == true) { %>
+				<div>
+					<form method='PUT' action='/account/return/<%= game.id %>' class='returnGame'>
+						<button type='submit' class='btn'>
+							Return <span class='glyphicon glyphicon-log-out'></span>
+						</button>
+					</form>
+				</div>
 			<% } %>
 
 

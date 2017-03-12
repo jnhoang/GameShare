@@ -109,6 +109,7 @@ h1 {
 	margin: 0.5em 2em;
 }
 .userGames {
+	min-height: 200px;
 	border-top: 3px solid #50D6FF;
 	border-bottom: 3px solid #50D6FF;
 	background-color: #ECF0F1;
@@ -119,6 +120,8 @@ h1 {
 	color: white;
 }
 .userLoanList {
+	display: flex;
+	justify-content: space-around;
 	margin: 0 5px;
 	padding: 10px 0px;
 	background-color: #ECF0F1;
@@ -134,7 +137,16 @@ h1 {
 }
 .userBorrowedHalf {
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
+	align-items: center;
+}
+.userBorrowText {
+	margin-bottom: 5px;
+}
+.borrowGameContainer {
+	display: flex;
+	flex-direction: row;
 }
 .loanList {
 	display: flex;
@@ -166,7 +178,6 @@ h1 {
 }
 .addBox {
 	margin-bottom: 5px;
-	border: 1px solid red;
 	background-color: #7F7F85;
 	display: flex;
 	align-items: center;
@@ -202,6 +213,7 @@ h1 {
 	margin: 0;
 }
 .shortList {
+	min-height: 175px;
 	padding: 10px 0;
 	margin: 0 5px;
 	display: flex;
@@ -245,7 +257,6 @@ h1 {
 	color: black;
 	text-shadow: 0 0 15px grey;
 }
-/*gameDescription*/
 .coolBackground {
 	display: flex;
 	align-items: baseline;
@@ -270,7 +281,7 @@ h1 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 .gameTitle {
 	padding-top: 50px;
