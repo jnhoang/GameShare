@@ -59,14 +59,14 @@ a:hover {
 }
 /*Home*/
 .homeEvenRow {
-	background-color: #FAFAFB;
+	background-color: #ECF0F1;
 	border-top: 3px solid #50FF65;
 	border-bottom: 3px solid #50FF65;
 	margin: 0 5px;
 	padding: 0 3em;
 }
 .homeOddRow {
-	background-color: #FAFAFB;
+	background-color: #ECF0F1;
 	border-top: 3px solid #5DFFCC;
 	border-bottom: 3px solid #5DFFCC;
 	margin: 0 10px;
@@ -84,8 +84,10 @@ a:hover {
 	font-size: 24px;
 }
 .siteDescriptionImg {
+	box-shadow: 0 0 5px 1px black;
 	max-height: 90%;
 	max-width: 65%;
+	margin-right: 1em;
 }
 .exampleImgWithText {
 	justify-content: center;
@@ -96,6 +98,7 @@ a:hover {
 	padding: 2em;
 }
 .parallaxImg {
+	margin: 0;
 	height: 400px;
 	display: flex;
 	justify-content: center;
@@ -307,9 +310,10 @@ h1 {
 }
 .imgLinkContainer {
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	height: 200px;
-	width: 140px;
+	width: 152px;
 	overflow: hidden;
 }
 .searchResultSummary {
