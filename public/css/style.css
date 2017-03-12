@@ -303,11 +303,6 @@ h1 {
 	height: 400px;
 	width: 100%;
 }
-.imgContainer {
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-}
 .imgLinkContainer {
 	display: flex;
 	justify-content: center;
