@@ -44,4 +44,4 @@ app.use('/community', require('./controllers/communities'));
 
 
 // listen
-app.listen(process.env.PORt || 3000)
+app.listen(process.env.PORT || 3000)
