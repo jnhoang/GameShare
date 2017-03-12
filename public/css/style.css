@@ -19,7 +19,12 @@ footer {
 	font-family: 'Helvetica Neue';
 	text-shadow: none;
 	display: inline-block;
+}
+.userLoggedin {
 	color: white;
+}
+.logoutLink {
+	color: #262626;
 }
 .logo1 {
 	padding: 0px;
@@ -81,11 +86,15 @@ a:hover {
 }
 .parallaxImg {
 	height: 400px;
-	margin: 0 5px;
 }
 /*Search*/
 .searchBar {
-	width: 70%;
+	width: 45%;
+	margin-right: 25px;
+}
+.searchBox {
+	display: flex;
+	justify-content: center;
 }
 .searchResultSummary {
 	margin-top:25px;
@@ -238,7 +247,11 @@ h1 {
 }
 /*gameDescription*/
 .coolBackground {
-	height: 150px;
+	display: flex;
+	align-items: baseline;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 400px;
 	width: 100%;
 	background-size: cover;
 	background-position: center;
@@ -261,7 +274,7 @@ h1 {
 }
 .gameTitle {
 	padding-top: 50px;
-	font-size: 70px;
+	font-size: 4em;
 	color: white;
 	text-shadow: 5px 5px 5px black;
 	margin: 0 25px;
@@ -271,8 +284,8 @@ h1 {
 	max-width: 100%;
 }
 .singleCoverImg {
+	margin-left: 50px;
 	position: relative;
-	margin-top: -150%;
 	box-shadow: 0 0 15px 5px black;
 }
 .test {
@@ -282,4 +295,18 @@ h1 {
 }
 .responsiveCarousel {
 	background-color: black;
+}
+
+
+
+/*modals*/
+#loginSignupModal {
+	z-index: 1;
+	width: 60%;
+	position: fixed;
+	left: 25%;
+	top: 15%;
+}
+.hideIt {
+	visibility: hidden;
 }

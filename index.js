@@ -36,6 +36,10 @@ app.get('/', function(req, res) {
 	res.render('home');
 });
 
+app.get('/login', function(req, res) {
+	res.render('partials/loginSignup');
+})
+
 
 // controllers
 app.use('/account', require('./controllers/accounts'));

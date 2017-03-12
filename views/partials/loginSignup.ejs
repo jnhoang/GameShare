@@ -1,0 +1,46 @@
+
+
+<div id='loginSignupModal' hidden>
+  <span class='glyphicon glyphicon-remove loginSignupBtn btn'></span>
+  <ul>
+    <li><a href='#login'>Login</a></li>
+    <li><a href='#signup'>Sign up</a></li>
+  </ul>
+
+  <div id='login'>
+    <form method='POST' action='/account/login'>
+      <div class='form-group'>
+        <label for='username'>User Name: </label>
+        <input type='text' name='username' class='form-control' placeholder='Type your user name'>
+      </div>
+      <div class='form-group'>
+        <label for='password'>Password:</label>
+        <input type='password' name='password' class='form-control' placeholder='Type your desired password'>
+      </div>
+      <button type='submit' class='btn btn-success gradient'>Log in</button>
+    </form>
+  </div>
+
+  <div id='signup'>
+    <form method='POST' action='/account/signup'>
+      <div class='form-group'>
+        <label for='firstName'>First Name: </label>
+        <input type='text' name='firstName' class='form-control' placeholder='Type your first name'>
+      </div>
+      <div class='form-group'>
+        <label for='username'>Desired Username:</label>
+        <input type='text' name='username' class='form-control' placeholder='Type your desired user name'>
+      </div>
+      <div class='form-group'>
+        <label for='email'>Email:</label>
+        <input type='text' name='email' class='form-control' placeholder='Type your email address'>
+      </div>
+      <div class='form-group'>
+        <label for='password'>Desired Password:</label>
+        <input type='password' name='password' class='form-control' placeholder='Type your desired password'>
+      </div>
+      <button type='submit' value='signUp' class='btn btn-success gradient'>Sign up!</button>
+    </form>
+  </div>
+
+</div>

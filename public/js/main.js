@@ -108,6 +108,13 @@ $('document').ready(function() {
 		});
 	});
 
+
+	//login/signup form
+	$('#loginSignupModal').tabs();
+	$('.loginSignupBtn').on('click', function() {
+		$('#loginSignupModal').toggle('.hideIt');
+	})
+
 });
 
 
