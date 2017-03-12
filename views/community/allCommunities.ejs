@@ -10,10 +10,14 @@
 
 <% communities.forEach(function(community) { %>
 	<div class='singleCommunityBox'>
-		<a href='/community/<%= community.id %>'>
-			<h1><%= community.name %></h1>
-		</a>
-		<p><%= community.description %></p>
+		<div class='communityName'>
+			<a href='/community/<%= community.id %>'>
+				<h2><%= community.name %></h2>
+			</a>	
+		</div>
+		<div class='communityDescription'>
+			<p><%= community.description %></p>
+		</div>
 	</div>
 	<div class='divider-15'></div>
 <% }); %>

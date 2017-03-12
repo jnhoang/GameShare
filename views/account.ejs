@@ -103,7 +103,7 @@
 <div class='userGames'>
 
 	<div class='gameContainer'>
-		<div class='imgContainer'>
+		<div class='userImgContainer'>
 			<a href='/search'>
 				<div class='addBox gameAddBox'>
 					<span class='glyphicon glyphicon-plus'></span>
@@ -115,7 +115,7 @@
 
 	<% user.games.forEach(function(game) { %>
 		<div class='gameContainer'>
-			<div class='imgContainer'>
+			<div class='userImgContainer'>
 				<a href='/search/searchResult/<%=game.igdbId%>'><img src='<%=gameCoverBigURL + game.cover %>' class='coverImgs'></a>
 			</div>
 			<p class='text-center'><%= game.title %></p>
