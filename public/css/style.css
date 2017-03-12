@@ -62,7 +62,8 @@ a:hover {
 	background-color: #FAFAFB;
 	border-top: 3px solid #50FF65;
 	border-bottom: 3px solid #50FF65;
-	margin: 0 10px;
+	margin: 0 5px;
+	padding: 0 3em;
 }
 .homeOddRow {
 	background-color: #FAFAFB;
@@ -72,20 +73,33 @@ a:hover {
 }
 .siteDescription {
 	height: 350px;
+	display: flex;
+}
+.about {
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 .siteDescription p {
 	font-size: 24px;
 }
 .siteDescriptionImg {
-	max-height: 100%;
+	max-height: 90%;
 	max-width: 65%;
 }
-.searchExample {
-	display: flex;
+.exampleImgWithText {
 	justify-content: center;
+	align-items: center;
+
+}
+.exampleText { 
+	padding: 2em;
 }
 .parallaxImg {
 	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 /*Search*/
 .searchBar {
@@ -94,6 +108,7 @@ a:hover {
 }
 .searchBox {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 }
 .searchResultSummary {
@@ -107,6 +122,12 @@ a:hover {
 h1 {
 	font-size: 30px;
 	margin: 0.5em 2em;
+}
+.parallaxText {
+	color: white;
+	text-shadow: 0px 0px 50px black;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 8em;
 }
 .userGames {
 	display: flex;

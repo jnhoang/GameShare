@@ -19,11 +19,6 @@ router.get('/', isLoggedIn, function(req, res) {
 	})
 });
 
-// /GET, shows form to create a new community
-router.get('/create', function(req, res) {
-	res.render('community/createCommunity');
-});
-
 // /POST, findOrCreate a new community, redirect to new community page
 router.post('/create/:id', function(req, res) {
 	var currentUser = req.user.id;

@@ -24,6 +24,11 @@ $('document').ready(function() {
 		iosFix: true,
 		androidFix: true
 	});
+	$('.parallax5').parallax({
+		imageSrc: '	http://res.cloudinary.com/dxumleria/image/upload/v1489301391/DLbc6G1_zlg4sb.png',
+		iosFix: true,
+		androidFix: true
+	});
 	// gameDescription view's screenshot Carousel
 	$('.responsiveCarousel').slick({
 		dots: true,
