@@ -2,6 +2,7 @@
 var express = require('express');
 var db = require('../models');
 var flash = require('connect-flash');
+var isLoggedIn = require('./../middleware/isLoggedIn');
 
 
 var router = express.Router();
@@ -11,7 +12,7 @@ router.use(flash());
 // routes
 
 // /GET, shows all communities available
-router.get('/', function(req, res) {
+router.get('/', isLoggedIn, function(req, res) {
 	db.community.findAll()
 	.then(function(communities) {
 		res.render('community/allCommunities', {communities: communities});		
@@ -56,7 +57,7 @@ router.post('/create/:id', function(req, res) {
 
 
 // /GET, shows a single community's site
-router.get('/:id', function(req, res) {
+router.get('/:id', isLoggedIn, function(req, res) {
 	db.community.find({
 		where: {id: req.params.id},
 		include: [db.user]

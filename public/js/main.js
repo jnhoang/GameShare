@@ -113,7 +113,12 @@ $('document').ready(function() {
 	$('#loginSignupModal').tabs();
 	$('.loginSignupBtn').on('click', function() {
 		$('#loginSignupModal').toggle('.hideIt');
-	})
+	});
+
+	//createCommunity form
+	$('.createCommunityBtn').on('click', function() {
+		$('#createCommunityModal').toggle('.hideIt');
+	});
 
 });
 

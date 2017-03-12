@@ -109,6 +109,9 @@ h1 {
 	margin: 0.5em 2em;
 }
 .userGames {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 	min-height: 200px;
 	border-top: 3px solid #50D6FF;
 	border-bottom: 3px solid #50D6FF;
@@ -311,12 +314,22 @@ h1 {
 
 
 /*modals*/
-#loginSignupModal {
-	z-index: 1;
+.modals {
 	width: 60%;
 	position: fixed;
 	left: 25%;
-	top: 15%;
+	top: 15%;	
+	z-index: 1;
+}
+#loginSignupModal {
+}
+#createCommunityModal {
+	box-shadow: 0 0 2px black;
+	border-radius: 5px;
+	border: 1px solid black;
+	height:300px;
+	background: white;
+	padding: 25px;
 }
 .hideIt {
 	visibility: hidden;
