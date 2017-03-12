@@ -12,7 +12,7 @@ router.use(flash());
 
 // /GET, shows all communities available
 router.get('/', function(req, res) {
-	db.community.findAll({ limit: 10})
+	db.community.findAll()
 	.then(function(communities) {
 		res.render('community/allCommunities', {communities: communities});		
 	})

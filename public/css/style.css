@@ -202,7 +202,6 @@ h1 {
 	border-top: 3px solid #5DFFCC;
 	border-bottom: 3px solid #5DFFCC;
 }
-
 .userBox {
 	height: 150px;
 	width: 150px;
@@ -216,9 +215,30 @@ h1 {
 	margin: 0;
 }
 
+.allCommunityBanner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-right: 6px;
+}
+.singleCommunityBox {
+	height: 150px;
+	padding: 10px 0;
+	margin: 0 5px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #ECF0F1;
+	border-top: 3px solid #50FF65;
+	border-bottom: 3px solid #50FF65;	
+}
+.singleCommunityBox p {
+	color: black;
+	text-shadow: 0 0 15px grey;
+}
 /*gameDescription*/
 .coolBackground {
-	height: 350px;
+	height: 150px;
 	width: 100%;
 	background-size: cover;
 	background-position: center;
@@ -229,7 +249,7 @@ h1 {
 	align-items: flex-end;
 	height: 200px;
 	width: 200px;
-	margin: 20px;
+	margin: 20px 20px 0 20px;
 	overflow: hidden;
 }
 .gameContainer {
@@ -237,6 +257,7 @@ h1 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 20px;
 }
 .gameTitle {
 	padding-top: 50px;
