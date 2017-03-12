@@ -10,7 +10,6 @@ var router = express.Router();
 
 // /POST, Signup
 router.post('/signup', function(req, res) {
-	console.log(req.body); 							// debug code
 	db.user.findOrCreate({
 		where: {username: req.body.username},
 		defaults: {
@@ -57,7 +56,6 @@ router.get('/logout', function(req, res) {
 
 // /GET, user account home page
 router.get('/', isLoggedIn , function(req, res) {
-	//console.log(req.user);					//debug code
 	var currentUser = req.user;
 
 	db.user.find({
@@ -195,15 +193,3 @@ router.put('/request/:id', function(req, res) {
 
 // export
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-

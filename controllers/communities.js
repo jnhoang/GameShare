@@ -129,7 +129,6 @@ module.exports = router;
 
 
 
-
 function getUserId(userArr) {
 	var tempArr = [];
 	userArr.forEach(function(user) {

@@ -115,8 +115,10 @@ a:hover {
 	margin-top:25px;
 }
 .searchResultBackground {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 	background-color: #ECF0F1;
-	padding-bottom: 20px;
 }
 /*Account*/
 h1 {
@@ -292,6 +294,20 @@ h1 {
 	background-position: center;
 }
 .imgContainer {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.imgLinkContainer {
+	height: 200px;
+	width: 100%;
+	overflow: hidden;
+}
+.searchResultSummary {
+	padding: 25px;
+}
+/*.imgContainer {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
@@ -299,7 +315,7 @@ h1 {
 	width: 200px;
 	margin: 20px 20px 0 20px;
 	overflow: hidden;
-}
+}*/
 .gameContainer {
 	display: flex;
 	flex-direction: column;

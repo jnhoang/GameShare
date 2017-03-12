@@ -8,27 +8,31 @@
 	<% if (game.cover) { %>
 		<div class='divider-10'></div>
 		
-		<div class='row searchResultBackground'>
-			<div class='col-xs-12 col-xs-offset-1 col-sm-2  text-center'>
+		<div class='searchResultBackground'>
+			<div class='imgContainer'>
 				<a href='/search/searchResult/<%= game.id %>'>
-					<div class='imgContainer'><img src='<%= gameCoverURL + game.cover.cloudinary_id %>' class='coverImgs'></div>
+					<div class='imgLinkContainer'>
+						<img src='<%= gameCoverURL + game.cover.cloudinary_id %>' class='coverImgs'>
+					</div>
 				</a>
-				<% if (currentUser) {%>
-					<form method='POST' action='/search/add' class='text-left'>
-						<input type='hidden' name='gameId' value='<%= game.id %>'>
-						<button type='submit' class='btn btn-primary gradient'>Add to Library</button>
-					</form>
-				<% } %>
+				<div>
+					<% if (currentUser) {%>
+						<form method='POST' action='/search/add' class='text-left'>
+							<input type='hidden' name='gameId' value='<%= game.id %>'>
+							<button type='submit' class='btn btn-primary gradient'>Add to Library</button>
+						</form>
+					<% } %>
+				</div>
+
 			</div>
-			<div class='col-xs-6 col-xs-offset-2 searchResultSummary'>
+
+			<div class='searchResultSummary'>
 				<% if (game.summary) { %>
 					<p><%= game.summary %></p>
 				<% } else { %>
 					<p>No Game Summary Available</p>
 				<% } %>
-			</div>
-
-			
+			</div>	
 		</div>
 
 		<div class='divider-10'></div>
