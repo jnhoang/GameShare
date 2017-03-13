@@ -29,7 +29,6 @@ $('document').ready(function() {
 		})
 	});
 
-
 	// accept user request to borrow a game
 	$('.acceptLoanRequest').on('submit', function(e) {
 		e.preventDefault();
