@@ -1,7 +1,8 @@
 /*Layout*/
 body { 
 font-family: 'Russo One', sans-serif;
- }
+min-height: 100%;
+}
 .navBar {
 	border-bottom: 3px solid #5DFFCC;
 	margin: 5px;
@@ -21,6 +22,7 @@ footer {
 	padding: 10px;
 	border-radius: 0 0 5px 5px;	
 	background-color: #7F7F85;
+
 }
 footer p {
 	font-family: 'Helvetica Neue';
@@ -90,7 +92,8 @@ a:hover {
 	background-color: #ECF0F1;
 	border-top: 3px solid #5DFFCC;
 	border-bottom: 3px solid #5DFFCC;
-	margin: 0 10px;
+	margin: 0 5px;
+	padding: 0 3em;
 }
 .siteDescription {
 	height: 350px;
@@ -119,13 +122,16 @@ a:hover {
 	padding: 2em;
 }
 .parallaxImg {
-	margin: 0;
+	margin: 0 5px;
 	height: 400px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 /*Search*/
+.searchSpacer {
+	height: 75vh;
+}
 .searchBar {
 	width: 45%;
 	margin-right: 25px;

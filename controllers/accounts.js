@@ -105,7 +105,7 @@ router.get('/', isLoggedIn , function(req, res) {
 			});
 
 			games.forEach(function(game) {
-				if (game.askerUsername && game.askerUsername != currentUser.username && !game.loaned) {
+				if (game.askerUsername && game.askerUsername != currentUser.username && !game.loaned && game.userId == currentUser.id) {
 					gamesRequested.push(game);
 				}
 			});
