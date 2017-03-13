@@ -357,6 +357,14 @@ h1 {
 	align-items: center;
 	margin-bottom: 10px;
 }
+.gameContainer p {
+	height: 40px;
+	width: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+}
 .gameTitle {
 	text-align: center;
 	padding-top: 50px;
