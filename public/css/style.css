@@ -1,4 +1,7 @@
 /*Layout*/
+body { 
+font-family: 'Russo One', sans-serif;
+ }
 .navBar {
 	border-bottom: 3px solid #5DFFCC;
 	margin: 5px;
@@ -9,11 +12,24 @@
 	text-shadow: 3px 3px 2px black;
 }
 footer {
+	display: flex;
+	justify-content: space-around;
+	color: white;
+	font-size: 8px;
 	border-top: 3px solid #5DFFCC;
 	margin: 5px;
 	padding: 10px;
 	border-radius: 0 0 5px 5px;	
 	background-color: #7F7F85;
+}
+footer p {
+	font-family: 'Helvetica Neue';
+	display: inline;
+}
+footer a {
+	font-family: 'Helvetica Neue';
+
+	color: white;
 }
 .rightNav {
 	font-family: 'Helvetica Neue';
@@ -53,6 +69,11 @@ footer {
 }
 
 a:hover {
+	color: #5DFFCC;
+	text-decoration: none;
+	cursor: pointer;
+}
+.btn-link:hover {
 	color: #5DFFCC;
 	text-decoration: none;
 	cursor: pointer;
