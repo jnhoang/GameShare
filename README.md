@@ -48,6 +48,6 @@ There were many things I had to cut from my final project. It would be awesome t
 
 # Resources Used:
 * Internet Game Database (IGDB) API - https://igdb.github.io/api/about/welcome/
-* [Video game Images from reddit.com/r/wallpapers Imgur link](http://imgur.com/gallery/A51wW)
-* [Mirrors Edge Image](http://www.mirrorsedge.com/news)
+* Video game Images from reddit.com/r/wallpapers Imgur link - http://imgur.com/gallery/A51wW
+* Mirrors Edge Image - http://www.mirrorsedge.com/news
 * Photos are hosted on Cloudinary
