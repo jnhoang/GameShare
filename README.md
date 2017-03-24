@@ -17,7 +17,7 @@ This was a project that was done over 7 days. The idea is to make a shared video
 * Day 6 - Fine tuned styling and built out the rest of views.
 * Day 7 - Deployed, further fine tuning of view styles, bug fixes.
 
-# Technologies Used
+# Front End Technologies Used
 * [jQuery](https://jquery.com/)
 * [JQuery Ui](https://jqueryui.com/)
 * [Bootstrap](http://getbootstrap.com/)
@@ -26,9 +26,16 @@ This was a project that was done over 7 days. The idea is to make a shared video
 * [Glyph icons](http://getbootstrap.com/components/#glyphicons)
 * [Parallax.js](http://pixelcog.github.io/parallax.js/)
 
+# Back End Technologies Used
+* [https://www.npmjs.com/package/express](Express)
+* [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* [Passport](https://www.npmjs.com/package/passport-local)
+* [Postgres](https://www.postgresql.org/)
+* [Sequelize](https://www.npmjs.com/package/sequelize)
+
+
 # Unsolved Problems
 * Styling hiccups
-
 
 # Next Steps
 There were many things I had to cut from my final project. It would be awesome to get these additional things in the app.
