@@ -27,7 +27,7 @@ This was a project that was done over 7 days. The idea is to make a shared video
 * [Parallax.js](http://pixelcog.github.io/parallax.js/)
 
 # Back End Technologies Used
-* [https://www.npmjs.com/package/express](Express)
+* [Express](https://www.npmjs.com/package/express)
 * [Bcrypt](https://www.npmjs.com/package/bcrypt)
 * [Passport](https://www.npmjs.com/package/passport-local)
 * [Postgres](https://www.postgresql.org/)
