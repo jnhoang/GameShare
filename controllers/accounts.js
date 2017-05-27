@@ -80,35 +80,10 @@ router.get('/', isLoggedIn , function(req, res) {
 			include:[db.user]
 		})
 		.then(function(games) {
-			var gamesOnLoan = [];
-			var gamesRequested = [];
-			var currentUserLoaning = [];
-			var currentUserLoanRequests = [];
-
-			games.forEach(function(game) {
-				if (game.askerUsername == currentUser.username && !game.loaned) {
-					currentUserLoanRequests.push(game);
-				}
-			})
-
-			games.forEach(function(game) {
-				if (game.askerUsername == currentUser.username && game.loaned) {
-					currentUserLoaning.push(game);
-				}
-			});
-			
-			games.forEach(function(game) {
-				if (game.askerUsername && game.askerUsername != currentUser.username && 
-					game.loaned && game.userId == currentUser.id) {
-					gamesOnLoan.push(game);
-				}
-			});
-
-			games.forEach(function(game) {
-				if (game.askerUsername && game.askerUsername != currentUser.username && !game.loaned && game.userId == currentUser.id) {
-					gamesRequested.push(game);
-				}
-			});
+			var gamesOnLoan = games.filter( (game) => game.askerUsername == currentUser.username && !game.loaned )
+			var gamesRequested = games.filter( (game) => game.askerUsername && game.askerUsername != currentUser.user && !game.loaned && game.userId == currentUser.id);
+			var currentUserLoaning = games.filter( (game) => game.askerUsername == currentUser.username && game.loaned);
+			var currentUserLoanRequests = games.filter( (game) => game.askerUsername == currentUser.username && !game.loaned);
 
 			res.render('account', {
 				user: user,
