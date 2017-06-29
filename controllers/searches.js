@@ -29,10 +29,10 @@ router.get('/searchResult', function(req, res) {
 	}, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			var gameData = JSON.parse(body);
+			console.log(gameData);
 			res.render('searchResult', {gameData: gameData});
 		} else {
 			res.redirect('/search');
-
 		}
 	});
 });
@@ -47,6 +47,7 @@ router.get('/searchResult/:id', function(req, res) {
 	}, function(error, response, body) {
 		if(!error && response.statusCode == 200) {
 			var gameData = JSON.parse(body)[0];
+
 			res.render('gameDescription', {gameData: gameData});			
 		} else {
 			res.redirect('/search');

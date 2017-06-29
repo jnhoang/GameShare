@@ -80,9 +80,9 @@ router.get('/', isLoggedIn , function(req, res) {
 			include:[db.user]
 		})
 		.then(function(games) {
-			var gamesOnLoan = games.filter( (game) => game.askerUsername == currentUser.username && !game.loaned )
-			var gamesRequested = games.filter( (game) => game.askerUsername && game.askerUsername != currentUser.user && !game.loaned && game.userId == currentUser.id);
-			var currentUserLoaning = games.filter( (game) => game.askerUsername == currentUser.username && game.loaned);
+			var gamesOnLoan 						= games.filter( (game) => game.askerUsername == currentUser.username && !game.loaned )
+			var gamesRequested					= games.filter( (game) => game.askerUsername && game.askerUsername != currentUser.user && !game.loaned && game.userId == currentUser.id);
+			var currentUserLoaning 			= games.filter( (game) => game.askerUsername == currentUser.username && game.loaned);
 			var currentUserLoanRequests = games.filter( (game) => game.askerUsername == currentUser.username && !game.loaned);
 
 			res.render('account', {
@@ -151,7 +151,8 @@ router.put('/return/:id', function(req, res) {
 // /PUT, request to borrow a game
 router.put('/request/:id', function(req, res) {
 	var gameId = req.params.id;
-	var currentUser = req.user
+	var currentUser = req.user;
+	
 	db.game.update(
 		{
 			askerUsername: currentUser.username,
