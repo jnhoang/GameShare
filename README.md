@@ -1,8 +1,3 @@
-# WARNING
-* As of 6/22/17 image links from the IGDB API hosted server seem to be down. Will monitor and update as necessary 
-
-
-
 This was a project that was done over 7 days. The idea is to make a shared video game library. Users note what games that have, join a community, and borrow/lend games to users within a community.
 
 # Technical Requirements
